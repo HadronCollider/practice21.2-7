@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CountryByFlagQuizActivity"
+    android:orientation="vertical"
+    android:background="@color/bgcolor">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Какой стране принадлежит этот флаг?"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center"
+        android:textSize="40dp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="35dp"
+
+        />
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="180dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/australia"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/white"
+        android:text="Польша"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/white"
+        android:text="Австралия"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/white"
+        android:text="Россия"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/white"
+        android:text="Франция"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textAllCaps="false"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        tools:ignore="ExtraText">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/home"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Правильные ответы: 0 / 1"
+            android:textColor="@android:color/black"
+            android:paddingLeft="95dp"
+            android:textAlignment="center"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
