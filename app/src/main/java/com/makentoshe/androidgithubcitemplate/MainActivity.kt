@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,5 +16,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
+        findViewById<TextView>(R.id.textView).setOnClickListener {
+            val intent = Intent(this, CountryByFlagQuizActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
+
+
     }
 }
