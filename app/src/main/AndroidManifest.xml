@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".FormatActivity"></activity>
+
         <activity android:name=".CountryByFlagQuizActivity"></activity>
 
         <activity android:name=".SettingActivity"></activity>
