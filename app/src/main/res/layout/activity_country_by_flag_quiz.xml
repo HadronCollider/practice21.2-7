@@ -29,7 +29,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_gravity="center"
-        android:background="@drawable/australia"/>
+        android:background="@drawable/f1"/>
 
     <Button
         android:layout_width="360dp"
@@ -38,6 +38,7 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Польша"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
         android:textAllCaps="false"/>
@@ -49,6 +50,7 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Австралия"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
         android:textAllCaps="false"/>
@@ -60,6 +62,7 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Россия"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
         android:textAllCaps="false"/>
@@ -71,6 +74,7 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Франция"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
         android:textAllCaps="false"/>
