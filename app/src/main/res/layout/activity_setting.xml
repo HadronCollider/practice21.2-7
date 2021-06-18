@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingActivity">
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/radiogroup">
+
+        <RadioButton
+            android:id="@+id/radioclassic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Без ограничений"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/radiotime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="На время"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="До 3 ошибок"
+            android:textSize="24sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textsettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="Настройки"
+        android:textSize="48sp" />
+
+    <Button
+        android:id="@+id/buttondone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radiogroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="Готово" />
+
+</RelativeLayout>
