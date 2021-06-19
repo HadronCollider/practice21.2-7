@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<TextView>(R.id.textView).setOnClickListener {
-            val intent = Intent(this, CountryByFlagQuizActivity::class.java)
+            val intent = Intent(this, FormatActivity::class.java)
             startActivity(intent)
         }
 
