@@ -23,6 +23,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
     var right_option = Random.nextInt(0, 3)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide();
         setContentView(R.layout.activity_capital_by_country_quiz)
 
         val db = DataBase()
