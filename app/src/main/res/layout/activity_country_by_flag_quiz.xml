@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".CountryByFlagQuizActivity"
     android:orientation="vertical"
-    android:background="@color/bgcolor">
+    android:background="@color/bgcolor"
+    android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
