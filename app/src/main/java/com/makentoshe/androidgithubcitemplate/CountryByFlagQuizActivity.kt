@@ -55,6 +55,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     val intent = Intent(this,MarkActivity::class.java)
                     Log.d("migav", points.toString())
                     intent.putExtra("points", points.toString())
+                    intent.putExtra("pointsint", points)
                     startActivity(intent)
 
                 }
