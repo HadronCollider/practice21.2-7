@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".CountryByFlagQuizActivity"
     android:orientation="vertical"
-    android:background="@color/bgcolor">
+    android:background="@color/bgcolor"
+    android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,62 +16,71 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_gravity="center"
-        android:textSize="40dp"
+        android:textSize="20dp"
         android:textColor="@android:color/black"
         android:textAlignment="center"
         android:paddingTop="20dp"
-        android:paddingBottom="35dp"
+        android:paddingBottom="20dp"
 
         />
 
     <ImageView
+        android:id="@+id/country_img"
         android:layout_width="360dp"
         android:layout_height="180dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_gravity="center"
-        android:background="@drawable/australia"/>
+        android:background="@drawable/f1"/>
 
     <Button
+        android:id="@+id/country0"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Польша"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
     <Button
+        android:id="@+id/country1"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Австралия"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
     <Button
+        android:id="@+id/country2"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Россия"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
         android:textAllCaps="false"/>
 
     <Button
+        android:id="@+id/country3"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Франция"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textAlignment="center"
         android:textAllCaps="false"/>
@@ -83,21 +93,22 @@
         android:paddingTop="10dp"
         tools:ignore="ExtraText">
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:paddingBottom="10dp"
-            android:background="@drawable/home"
-            />
+<!--        <ImageView-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:paddingBottom="10dp"-->
+<!--            android:background="@drawable/home"-->
+<!--            />-->
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Правильные ответы: 0 / 1"
-            android:textColor="@android:color/black"
-            android:paddingLeft="95dp"
-            android:textAlignment="center"/>
+<!--        <TextView-->
+<!--            android:id="@+id/right_ans_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Правильные ответы: 0 / 1"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:paddingLeft="95dp"-->
+<!--            android:textAlignment="center"/>-->
 
 
 
