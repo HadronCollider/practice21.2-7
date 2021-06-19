@@ -57,15 +57,16 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     intent.putExtra("points", points.toString())
                     startActivity(intent)
 
-                }
-                countries = db.getCountries(4)
-                right_option = Random.nextInt(0, 3)
+                } else {
+                    countries = db.getCountries(4)
+                    right_option = Random.nextInt(0, 3)
 
-                img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
-                country0.text = countries[0].country
-                country1.text = countries[1].country
-                country2.text = countries[2].country
-                country3.text = countries[3].country
+                    img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
+                    country0.text = countries[0].country
+                    country1.text = countries[1].country
+                    country2.text = countries[2].country
+                    country3.text = countries[3].country
+                }
             }
         }
 
