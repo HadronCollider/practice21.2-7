@@ -33,7 +33,9 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
 
         val img = findViewById<ImageView>(R.id.country_img)
 
-        img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
+        val flagImg = resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName)
+        img.setBackgroundResource(flagImg)
+        // val imgWidth = ((flagImg.width as Double) / img.height * 180) as Int
 
         country0.text = countries[0].country
         country1.text = countries[1].country
