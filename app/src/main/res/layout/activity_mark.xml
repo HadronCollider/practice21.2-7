@@ -6,14 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MarkActivity"
     android:orientation="vertical"
-    android:background="@color/bgcolor">
+    android:background="@color/bgcolor"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tv_welldone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="40dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        tools:ignore="RtlCompat" />
+
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="250dp"
         android:layout_marginBottom="50dp"
         android:text="Ваш результат: "
         android:textAlignment="center"
@@ -24,24 +37,10 @@
         android:id="@+id/home"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:paddingBottom="10dp"
         android:background="@drawable/home"
-        android:layout_gravity="center_horizontal"
-
+        android:layout_marginTop="20dp"
         />
 
-    <TextView
-        android:id="@+id/tv_welldone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="40dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="25dp"
-        tools:ignore="RtlCompat" />
 
 
 
