@@ -1,19 +1,18 @@
 package com.makentoshe.androidgithubcitemplate
 
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.drawable.Drawable
-import android.media.Image
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.SystemClock
+import android.util.DisplayMetrics
 import android.util.Log
+import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toDrawable
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_country_by_flag_quiz.*
 import kotlin.random.Random
+
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
 
@@ -32,9 +31,16 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
 
         val img = findViewById<ImageView>(R.id.country_img)
 
-        val flagImg = resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName)
-        img.setBackgroundResource(flagImg)
-        // val imgWidth = ((flagImg.width as Double) / img.height * 180) as Int
+        val metrics: DisplayMetrics = Resources.getSystem().getDisplayMetrics()
+        val pixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 180f, metrics)
+
+        img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
+        var params = img.layoutParams
+        val _ratio = img.background.minimumWidth.toDouble() / img.background.minimumHeight
+        if (_ratio > 2) params.height = (pixels * 2 / _ratio).toInt()
+        else params.width = (_ratio * pixels).toInt()
+        Log.d("width", img.height.toString())
+        img.layoutParams = params
 
         country0.text = countries[0].country
         country1.text = countries[1].country
@@ -62,6 +68,10 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     countries = db.getCountries(4)
                     right_option = Random.nextInt(0, 3)
                     img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
+                    val ratio = img.background.minimumWidth.toDouble() / img.background.minimumHeight
+                    if (ratio > 2) params.height = (img.width / ratio).toInt()
+                    else params.width = (ratio * img.height).toInt()
+                    img.layoutParams = params
                     country0.text = countries[0].country
                     country1.text = countries[1].country
                     country2.text = countries[2].country
