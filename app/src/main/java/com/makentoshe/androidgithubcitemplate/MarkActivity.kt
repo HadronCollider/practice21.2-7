@@ -16,7 +16,7 @@ class MarkActivity : AppCompatActivity() {
 
         var getIntentFromQuizActivity = intent
         if (getIntentFromQuizActivity.hasExtra("points")) {
-            tv.text = tv.text.toString() + getIntentFromQuizActivity.getStringExtra("points") + " / 10"
+            tv.text = tv.text.toString() + getIntentFromQuizActivity.getStringExtra("points") + " / " + getIntentFromQuizActivity.getStringExtra("tries")
             val points = getIntentFromQuizActivity.getStringExtra("points")?.toInt()
             fun congratulate (p:Int) = when (p) {
                 10, 9, 8 -> tv_welldone.text = "Ты - молодец!"
@@ -24,7 +24,8 @@ class MarkActivity : AppCompatActivity() {
                 else -> tv_welldone.text = "Москва не сразу строилась!"
             }
 
-            if (points != null) congratulate(points)
+            if ((getIntentFromQuizActivity.getStringExtra("tries")?.toInt() == 10) && (points != null)) congratulate(points)
+            else tv_welldone.text = "3 ошибки :( Игра закончилась"
 
         }
 

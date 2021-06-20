@@ -12,11 +12,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_country_by_flag_quiz.*
 import kotlin.random.Random
+import android.content.Context
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
 
     var points: Int = 0
+    var incorrect: Int = 0
     var tries: Int = 0
     var right_option = Random.nextInt(0, 3)
 
@@ -56,11 +60,13 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     points++
                     Toast.makeText(this, "Правильно!", Toast.LENGTH_SHORT).show()
                 }
+                else incorrect++
 
                 //right_ans_tv.text = "Правильные ответы: $points / $tries"
-                if (tries == 10) {
+                if (((getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0) == 0 || getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0) == 1) && tries == 10) || (getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0) == 3 && incorrect == 3)) {
                     val intent = Intent(this,MarkActivity::class.java)
                     intent.putExtra("points", points.toString())
+                    intent.putExtra("tries", tries.toString())
                     startActivity(intent)
 
                 } else {
@@ -83,12 +89,5 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
 
 
         }
-
-
-
-
-
-
-
     }
 }
