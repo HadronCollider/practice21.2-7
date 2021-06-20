@@ -15,6 +15,10 @@ import kotlin.random.Random
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import android.os.CountDownTimer
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import android.widget.TextView
 
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
@@ -23,6 +27,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
     var incorrect: Int = 0
     var tries: Int = 0
     var right_option = Random.nextInt(0, 3)
+    private lateinit var timer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +51,11 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         Log.d("width", img.height.toString())
         img.layoutParams = params
 
+        var counter: Long = 60000 // время на вопросы
+
+        var limitation_mode: Int = getSharedPreferences("settings",
+            Context.MODE_PRIVATE).getInt("limitations", 0)
+
         country0.text = countries[0].country
         country1.text = countries[1].country
         country2.text = countries[2].country
@@ -63,7 +73,8 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 else incorrect++
 
                 //right_ans_tv.text = "Правильные ответы: $points / $tries"
-                if (((getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0) == 0 || getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0) == 1) && tries == 10) || (getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0) == 3 && incorrect == 3)) {
+                if (((limitation_mode == 0 || limitation_mode == 1) && tries == 10) ||
+                    (limitation_mode == 3 && incorrect == 3)) {
                     val intent = Intent(this,MarkActivity::class.java)
                     intent.putExtra("points", points.toString())
                     intent.putExtra("tries", tries.toString())
@@ -86,8 +97,27 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     country_btns[i].setBackgroundColor(Color.WHITE)
                 }
             }
-
-
         }
+        if (limitation_mode == 2) {
+            timer = object : CountDownTimer(counter, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    var min = (millisUntilFinished / 60000) % 60
+                    var sec = (millisUntilFinished / 1000) % 60
+                    time.text = min.toString() + ':' + DecimalFormat("00").format(sec)
+                }
+
+                override fun onFinish() {
+                    val intent = Intent(applicationContext, MarkActivity::class.java)
+                    intent.putExtra("points", points.toString())
+                    intent.putExtra("tries", tries.toString())
+                    startActivity(intent)
+
+                }
+            }.start()
+        }
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (this::timer.isInitialized) timer.cancel()
     }
 }
