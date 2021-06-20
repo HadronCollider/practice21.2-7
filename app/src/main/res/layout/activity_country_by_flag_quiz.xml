@@ -10,6 +10,20 @@
     android:gravity="center">
 
     <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+
+        android:textSize="20dp" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Какой стране принадлежит этот флаг?"
