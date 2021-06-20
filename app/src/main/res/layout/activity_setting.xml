@@ -17,14 +17,14 @@
             android:id="@+id/radioclassic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Без ограничений"
+            android:text="10 вопросов"
             android:textSize="24sp" />
 
         <RadioButton
             android:id="@+id/radiotime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="На время"
+            android:text="60 секунд"
             android:textSize="24sp" />
 
         <RadioButton
