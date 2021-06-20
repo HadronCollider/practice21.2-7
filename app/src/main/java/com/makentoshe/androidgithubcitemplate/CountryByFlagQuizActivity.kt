@@ -19,6 +19,7 @@ import android.os.CountDownTimer
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
 
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
@@ -56,12 +57,18 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
 
+        var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+
         country0.text = countries[0].country
         country1.text = countries[1].country
         country2.text = countries[2].country
         country3.text = countries[3].country
 
         val country_btns = arrayOf(country0, country1, country2, country3)
+        if (limitation_mode == 3) {
+            time.setTextColor(Color.parseColor("#FF0000"))
+        }
+        else if (limitation_mode < 2) time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
 
         for (i in 0 until country_btns.size) {
             country_btns[i].setOnClickListener {
@@ -72,8 +79,15 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 }
                 else incorrect++
 
+                if (limitation_mode < 2 && (tries + 1) <= number_of_questions) time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
+                else if (limitation_mode == 3) {
+                    var incor: String = ""
+                    for (i in 0 until incorrect) incor += "×"
+                    time.setText(incor)
+                }
+
                 //right_ans_tv.text = "Правильные ответы: $points / $tries"
-                if (((limitation_mode == 0 || limitation_mode == 1) && tries == 10) ||
+                if (((limitation_mode == 0 || limitation_mode == 1) && tries == number_of_questions) ||
                     (limitation_mode == 3 && incorrect == 3)) {
                     val intent = Intent(this,MarkActivity::class.java)
                     intent.putExtra("points", points.toString())
