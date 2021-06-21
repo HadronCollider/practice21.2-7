@@ -3,14 +3,11 @@ package com.makentoshe.androidgithubcitemplate
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioGroup
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 
 class SettingActivity : AppCompatActivity() {
     var radiobn: Int = 0
@@ -21,10 +18,19 @@ class SettingActivity : AppCompatActivity() {
 
         val radioGroup = findViewById<RadioGroup>(R.id.radiogroup)
         val num_oq_label = findViewById<TextView>(R.id.numOQ)
-        val num_oq_edit = findViewById<EditText>(R.id.numOQEdit)
+        val num_oq_picker = findViewById<NumberPicker>(R.id.numQQPicker)
+        num_oq_picker.minValue = 1
+        num_oq_picker.maxValue = 100
+
+        // getPickerVals begin
+        var pickerVals: Array<String> = arrayOf()
+        for (i in 1..101) pickerVals = pickerVals.plus(i.toString())
+        // getPickerVals end
+
+        num_oq_picker.displayedValues = pickerVals
 
         radiobn = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0)
-        num_oq_edit.setText(getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10).toString())
+        num_oq_picker.value = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
         when (radiobn){
             0 -> radioGroup.check(R.id.radioclassic)
@@ -34,11 +40,11 @@ class SettingActivity : AppCompatActivity() {
         }
 
         if (radiobn != 1) {
-            num_oq_edit.visibility = android.view.View.GONE
-            num_oq_label.visibility = android.view.View.GONE
+            num_oq_picker.visibility = android.view.View.INVISIBLE
+            num_oq_label.visibility = android.view.View.INVISIBLE
         }
         else {
-            num_oq_edit.visibility = android.view.View.VISIBLE
+            num_oq_picker.visibility = android.view.View.VISIBLE
             num_oq_label.visibility = android.view.View.VISIBLE
         }
 
@@ -49,11 +55,11 @@ class SettingActivity : AppCompatActivity() {
                 R.id.radio3 -> radiobn = 3
             }
             if (radiobn != 1) {
-                num_oq_edit.visibility = android.view.View.GONE
-                num_oq_label.visibility = android.view.View.GONE
+                num_oq_picker.visibility = android.view.View.INVISIBLE
+                num_oq_label.visibility = android.view.View.INVISIBLE
             }
             else {
-                num_oq_edit.visibility = android.view.View.VISIBLE
+                num_oq_picker.visibility = android.view.View.VISIBLE
                 num_oq_label.visibility = android.view.View.VISIBLE
             }
         }
@@ -65,8 +71,8 @@ class SettingActivity : AppCompatActivity() {
             val editor = pref.edit()
 
             editor.putInt("limitations", radiobn)
-            if (num_oq_edit.text.toString().toInt() != 0 && num_oq_edit.text.toString().toInt() <= 194)
-                editor.putInt("numOQ", num_oq_edit.text.toString().toInt())
+            if (num_oq_picker.value != 0 && num_oq_picker.value <= 194)
+                editor.putInt("numOQ", num_oq_picker.value)
             else
                 editor.putInt("numOQ", 10)
 
