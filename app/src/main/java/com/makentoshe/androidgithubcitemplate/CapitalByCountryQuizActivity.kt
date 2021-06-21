@@ -9,9 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toDrawable
-import com.opencsv.CSVParserBuilder
 import java.io.FileReader
-import com.opencsv.CSVReaderBuilder
 import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
 import java.io.File
 import android.widget.TextView
@@ -30,7 +28,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
     var points: Int = 0
     var incorrect: Int = 0
     var tries: Int = 0
-    var right_option = Random.nextInt(0, 3)
+    var right_option = (0..3).random()
     private lateinit var timer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,15 +38,17 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
 
         val db = DataBase()
 
-        var countries = db.getCountries(4)
+        var limitation_mode: Int = getSharedPreferences("settings",
+            Context.MODE_PRIVATE).getInt("limitations", 0)
+        var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+        val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
+
+        var countries = getCountries(questions[0], right_option, db)
+        var ctr = 1
 
         val tv = findViewById<TextView>(R.id.tv_country)
 
         var counter: Long = 60000 // время на вопросы
-
-        var limitation_mode: Int = getSharedPreferences("settings",
-            Context.MODE_PRIVATE).getInt("limitations", 0)
-        var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
         tv.text = countries[right_option].country
 
@@ -88,8 +88,9 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                     startActivity(intent)
 
                 } else {
-                    countries = db.getCountries(4)
-                    right_option = Random.nextInt(0, 3)
+                    right_option = (0..3).random()
+                    countries = getCountries(questions[ctr], right_option, db)
+                    ctr++
 
                     tv.text = countries[right_option].country
                     capital0.text = countries[0].capital
@@ -117,6 +118,31 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                 }
             }.start()
         }
+    }
+    fun getCountries(rightAnswer: CountryRow, rightOption: Int, db: DataBase): List<CountryRow>
+    {
+        var _countries = db.getCountries(3).plus(rightAnswer)
+        while (true)
+        {
+            var flag = true
+            for (i in 0..2)
+            {
+                if(_countries[i].id == rightAnswer.id)
+                    flag = false
+            }
+            if (flag)
+                break
+            else
+                _countries = db.getCountries(3).plus(rightAnswer)
+        }
+        var countries: List<CountryRow> = listOf()
+        for (i in 0..2)
+        {
+            if (i == rightOption) countries = countries.plus(rightAnswer)
+            else countries = countries.plus(_countries[i])
+        }
+        countries = countries.plus(_countries[rightOption])
+        return countries
     }
     override fun onBackPressed() {
         super.onBackPressed()

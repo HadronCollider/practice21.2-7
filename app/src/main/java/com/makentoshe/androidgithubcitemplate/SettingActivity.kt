@@ -65,7 +65,7 @@ class SettingActivity : AppCompatActivity() {
             val editor = pref.edit()
 
             editor.putInt("limitations", radiobn)
-            if (num_oq_edit.text.toString().toInt() != 0 && num_oq_edit.text.toString().toInt() <= 300)
+            if (num_oq_edit.text.toString().toInt() != 0 && num_oq_edit.text.toString().toInt() <= 194)
                 editor.putInt("numOQ", num_oq_edit.text.toString().toInt())
             else
                 editor.putInt("numOQ", 10)

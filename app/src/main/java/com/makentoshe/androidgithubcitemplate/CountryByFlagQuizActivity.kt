@@ -16,6 +16,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.os.CountDownTimer
+import android.provider.ContactsContract
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import android.widget.TextView
@@ -27,7 +28,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
     var points: Int = 0
     var incorrect: Int = 0
     var tries: Int = 0
-    var right_option = Random.nextInt(0, 3)
+    var right_option = (0..3).random()
     private lateinit var timer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +38,14 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         //right_ans_tv.text = "Правильные ответы: $points / $tries"
         val db = DataBase()
 
-        var countries = db.getCountries(4)
+        var limitation_mode: Int = getSharedPreferences("settings",
+            Context.MODE_PRIVATE).getInt("limitations", 0)
+
+        var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+        val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
+
+        var countries = getCountries(questions[0], right_option, db)
+        var ctr = 1
 
         val img = findViewById<ImageView>(R.id.country_img)
 
@@ -47,17 +55,19 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
         var params = img.layoutParams
         val _ratio = img.background.minimumWidth.toDouble() / img.background.minimumHeight
-        if (_ratio > 2) params.height = (pixels * 2 / _ratio).toInt()
-        else params.width = (_ratio * pixels).toInt()
-        Log.d("width", img.height.toString())
+        if (_ratio > 2)
+        {
+            params.width = pixels.toInt() * 2
+            params.height = (pixels * 2 / _ratio).toInt()
+        }
+        else
+        {
+            params.width = (_ratio * pixels).toInt()
+            params.height = pixels.toInt()
+        }
         img.layoutParams = params
 
         var counter: Long = 60000 // время на вопросы
-
-        var limitation_mode: Int = getSharedPreferences("settings",
-            Context.MODE_PRIVATE).getInt("limitations", 0)
-
-        var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
         country0.text = countries[0].country
         country1.text = countries[1].country
@@ -88,7 +98,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
 
                 //right_ans_tv.text = "Правильные ответы: $points / $tries"
                 if (((limitation_mode == 0 || limitation_mode == 1) && tries == number_of_questions) ||
-                    (limitation_mode == 3 && incorrect == 3)) {
+                    (limitation_mode == 3 && incorrect == 3) || (tries == db.getSize())) {
                     val intent = Intent(this,MarkActivity::class.java)
                     intent.putExtra("points", points.toString())
                     intent.putExtra("tries", tries.toString())
@@ -96,12 +106,21 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
 
                 } else {
 
-                    countries = db.getCountries(4)
-                    right_option = Random.nextInt(0, 3)
+                    right_option = (0..3).random()
+                    countries = getCountries(questions[ctr], right_option, db)
+                    ctr++
                     img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
                     val ratio = img.background.minimumWidth.toDouble() / img.background.minimumHeight
-                    if (ratio > 2) params.height = (img.width / ratio).toInt()
-                    else params.width = (ratio * img.height).toInt()
+                    if (ratio > 2)
+                    {
+                        params.width = pixels.toInt() * 2
+                        params.height = (pixels * 2 / ratio).toInt()
+                    }
+                    else
+                    {
+                        params.width = (ratio * pixels).toInt()
+                        params.height = pixels.toInt()
+                    }
                     img.layoutParams = params
                     country0.text = countries[0].country
                     country1.text = countries[1].country
@@ -130,6 +149,33 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
             }.start()
         }
     }
+
+    fun getCountries(rightAnswer: CountryRow, rightOption: Int, db: DataBase): List<CountryRow>
+    {
+        var _countries = db.getCountries(3).plus(rightAnswer)
+        while (true)
+        {
+            var flag = true
+            for (i in 0..2)
+            {
+                if(_countries[i].id == rightAnswer.id)
+                    flag = false
+            }
+            if (flag)
+                break
+            else
+                _countries = db.getCountries(3).plus(rightAnswer)
+        }
+        var countries: List<CountryRow> = listOf()
+        for (i in 0..2)
+        {
+            if (i == rightOption) countries = countries.plus(rightAnswer)
+            else countries = countries.plus(_countries[i])
+        }
+        countries = countries.plus(_countries[rightOption])
+        return countries
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
         if (this::timer.isInitialized) timer.cancel()

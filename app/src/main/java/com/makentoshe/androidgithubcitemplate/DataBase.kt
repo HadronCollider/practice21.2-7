@@ -2,7 +2,7 @@ package com.makentoshe.androidgithubcitemplate
 
 class DataBase {
 
-    private val dataRaw = """1,Австралия,Канберра
+    private val dataRaw = """1,Австралия,Канберра,
 2,Австрия,Вена
 3,Азербайджан,Баку
 4,Албания,Тирана
@@ -220,11 +220,15 @@ class DataBase {
 
         var resData: List<CountryRow> = listOf()
 
-        for (i in 0..count) {
+        for (i in 0..(count - 1)) {
             resData = resData.plus(dataShuffled[i])
         }
         return resData
 
+    }
+
+    fun getSize(): Int {
+        return data.size
     }
 
 }

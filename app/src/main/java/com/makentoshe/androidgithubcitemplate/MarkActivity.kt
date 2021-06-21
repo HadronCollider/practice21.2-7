@@ -22,6 +22,7 @@ class MarkActivity : AppCompatActivity() {
             tv.text = tv.text.toString() + getIntentFromQuizActivity.getStringExtra("points") + " / " + getIntentFromQuizActivity.getStringExtra("tries")
             val points = getIntentFromQuizActivity.getStringExtra("points")?.toInt()
             val total = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+            val tries = getIntentFromQuizActivity.getStringExtra("tries")?.toInt()
             fun congratulate (p:Double?) {
                 if (p != null) {
                     if (p.compareTo(0.8) == 1) tv_welldone.text = "Вы молодец!"
@@ -35,7 +36,11 @@ class MarkActivity : AppCompatActivity() {
                     congratulate(points.toDouble() / total)
                 }
                 2 -> tv_welldone.text = "Время закончилось"
-                3 -> tv_welldone.text = "3 ошибки :( Игра закончилась"
+                3 -> if (points != null && tries != null){
+                    if (tries - points == 3) tv_welldone.text = "3 ошибки :( Игра закончилась"
+                    else if (tries - points == 0) tv_welldone.text = "Идеально!!!"
+                    else tv_welldone.text = "Игра закончилась"
+                }
             }
 
         }
