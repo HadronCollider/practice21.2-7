@@ -23,6 +23,10 @@ class FormatActivity : AppCompatActivity() {
             val intent = Intent(this, CapitalByCountryQuizActivity::class.java)
             startActivity(intent)
         }
+        findViewById<Button>(R.id.b_continents).setOnClickListener {
+            val intent = Intent(this, ContinentActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

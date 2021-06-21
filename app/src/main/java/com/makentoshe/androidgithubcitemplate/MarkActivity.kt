@@ -33,7 +33,7 @@ class MarkActivity : AppCompatActivity() {
 
             when (getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0)) {
                 0, 1 -> if (points != null) {
-                    congratulate(points.toDouble() / total)
+                    congratulate(points.toDouble() / tries!!)
                 }
                 2 -> tv_welldone.text = "Время закончилось"
                 3 -> if (points != null && tries != null){
