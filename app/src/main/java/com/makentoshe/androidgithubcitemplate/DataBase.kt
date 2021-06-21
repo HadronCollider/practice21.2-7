@@ -73,7 +73,7 @@ class DataBase(resources: Resources) {
         var ctr = 0
         var i = 0
         while(ctr < num) {
-            if ((dataShuffled[i].continent == continent || (continent == 8 && (dataShuffled[i].continent == 0 || dataShuffled[i].continent == 4))) == this_cont) {
+            if ((dataShuffled[i].continent == continent || (dataShuffled[i].continent == 8 && (continent == 0 || continent == 4))) == this_cont) {
                 resData = resData.plus(dataShuffled[i])
                 ctr++
             }

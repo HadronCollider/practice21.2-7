@@ -14,7 +14,7 @@ import java.text.DecimalFormat
 
 class ContinentActivity : AppCompatActivity() {
 
-    var _Continent = if ((0..3).random() == 0) arrayOf(0, 1, 3, 4).random() else arrayOf(2, 5).random()
+    var _Continent = if ((0..3).random() != 0) arrayOf(0, 1, 3, 4).random() else arrayOf(2, 5).random()
     var numOfCorrect = (3..7).random()
     private lateinit var timer: CountDownTimer
 
@@ -62,7 +62,7 @@ class ContinentActivity : AppCompatActivity() {
                     selected[i] = false
                 }
 
-                _Continent = if ((0..3).random() == 0) arrayOf(0, 1, 3, 4).random() else arrayOf(2, 5).random()
+                _Continent = if ((0..3).random() != 0) arrayOf(0, 1, 3, 4).random() else arrayOf(2, 5).random()
                 numOfCorrect = (3..7).random()
                 val countries = db.getByContinent(10 - numOfCorrect, _Continent, false).plus(db.getByContinent(numOfCorrect, _Continent, true)).shuffled()
                 textViewС.setText(continents[_Continent])
