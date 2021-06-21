@@ -22,6 +22,8 @@ import android.os.CountDownTimer
 import kotlinx.android.synthetic.main.activity_country_by_flag_quiz.*
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import android.os.Handler
+import android.os.Looper
 
 
 class CapitalByCountryQuizActivity : AppCompatActivity() {
@@ -40,7 +42,9 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
+
         var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+
         val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
 
         var countries = getCountries(questions[0], right_option, db)
@@ -64,39 +68,51 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
 
         val capital_btns = arrayOf(capital0, capital1, capital2, capital3)
 
+        fun next_question () {
+            if (((limitation_mode == 0 || limitation_mode == 1) && tries == number_of_questions) ||
+                (limitation_mode == 3 && incorrect == 3)) {
+                val intent = Intent(this, MarkActivity::class.java)
+                intent.putExtra("points", points.toString())
+                intent.putExtra("tries", tries.toString())
+                startActivity(intent)
+
+            } else {
+                right_option = (0..3).random()
+                countries = getCountries(questions[ctr], right_option, db)
+                ctr++
+                for (k in 0 until capital_btns.size) {
+                    capital_btns[k].setBackgroundColor(Color.WHITE)
+                }
+
+                if (limitation_mode < 2 && (tries + 1) <= number_of_questions) tv_time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
+
+                tv.text = countries[right_option].country
+                capital0.text = countries[0].capital
+                capital1.text = countries[1].capital
+                capital2.text = countries[2].capital
+                capital3.text = countries[3].capital
+            }
+        }
+
         for (i in 0 until capital_btns.size) {
             capital_btns[i].setOnClickListener {
                 tries++
                 if (right_option == i) {
                     points++
-                    Toast.makeText(this, "Правильно!", Toast.LENGTH_SHORT).show()
-                } else incorrect++
+                    capital_btns[i].setBackgroundColor(Color.GREEN)
+                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, 1000)
 
-                if (limitation_mode < 2 && (tries + 1) <= number_of_questions) tv_time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
-                else if (limitation_mode == 3) {
+                } else  {
+                    incorrect++
+                    capital_btns[i].setBackgroundColor(Color.RED)
+                    capital_btns[right_option].setBackgroundColor(Color.GREEN)
+                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, 1000)
+                }
+
+                if (limitation_mode == 3) {
                     var incor: String = ""
                     for (i in 0 until incorrect) incor += "× "
                     tv_time.setText(incor)
-                }
-
-                //right_ans_tv.text = "Правильные ответы: $points / $tries"
-                if (((limitation_mode == 0 || limitation_mode == 1) && tries == number_of_questions) ||
-                    (limitation_mode == 3 && incorrect == 3)) {
-                    val intent = Intent(this, MarkActivity::class.java)
-                    intent.putExtra("points", points.toString())
-                    intent.putExtra("tries", tries.toString())
-                    startActivity(intent)
-
-                } else {
-                    right_option = (0..3).random()
-                    countries = getCountries(questions[ctr], right_option, db)
-                    ctr++
-
-                    tv.text = countries[right_option].country
-                    capital0.text = countries[0].capital
-                    capital1.text = countries[1].capital
-                    capital2.text = countries[2].capital
-                    capital3.text = countries[3].capital
                 }
             }
         }

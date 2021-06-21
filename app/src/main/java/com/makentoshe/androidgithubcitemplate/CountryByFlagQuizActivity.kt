@@ -21,6 +21,8 @@ import java.text.DecimalFormat
 import java.text.NumberFormat
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
+import android.os.Handler
+import android.os.Looper
 
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
@@ -35,13 +37,14 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide();
         setContentView(R.layout.activity_country_by_flag_quiz)
-        //right_ans_tv.text = "Правильные ответы: $points / $tries"
+
         val db = DataBase()
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
 
         var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+
         val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
 
         var countries = getCountries(questions[0], right_option, db)
@@ -80,56 +83,71 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         }
         else if (limitation_mode < 2) time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
 
+        fun next_question (){
+            if (((limitation_mode == 0 || limitation_mode == 1) && tries == number_of_questions) ||
+                (limitation_mode == 3 && incorrect == 3) || (tries == db.getSize())) {
+                val intent = Intent(this,MarkActivity::class.java)
+                intent.putExtra("points", points.toString())
+                intent.putExtra("tries", tries.toString())
+                startActivity(intent)
+
+            } else {
+
+                right_option = (0..3).random()
+                countries = getCountries(questions[ctr], right_option, db)
+                ctr++
+                img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
+                val ratio = img.background.minimumWidth.toDouble() / img.background.minimumHeight
+                if (ratio > 2)
+                {
+                    params.width = pixels.toInt() * 2
+                    params.height = (pixels * 2 / ratio).toInt()
+                }
+                else
+                {
+                    params.width = (ratio * pixels).toInt()
+                    params.height = pixels.toInt()
+                }
+                img.layoutParams = params
+
+                for (k in 0 until country_btns.size) {
+                    country_btns[k].setBackgroundColor(Color.WHITE)
+                }
+
+                if (limitation_mode < 2 && (tries + 1) <= number_of_questions) time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
+
+                country0.text = countries[0].country
+                country1.text = countries[1].country
+                country2.text = countries[2].country
+                country3.text = countries[3].country
+
+            }
+        }
+
         for (i in 0 until country_btns.size) {
             country_btns[i].setOnClickListener {
                 tries++
                 if (right_option == i) {
                     points++
-                    Toast.makeText(this, "Правильно!", Toast.LENGTH_SHORT).show()
+                    country_btns[i].setBackgroundColor(Color.GREEN)
+                    Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1000)
+                    //Toast.makeText(this, "Правильно!", Toast.LENGTH_SHORT).show()
+                } else {
+                    incorrect++
+                    country_btns[i].setBackgroundColor(Color.RED)
+                    country_btns[right_option].setBackgroundColor(Color.GREEN)
+                    Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1000)
                 }
-                else incorrect++
 
-                if (limitation_mode < 2 && (tries + 1) <= number_of_questions) time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
-                else if (limitation_mode == 3) {
+
+                if (limitation_mode == 3) {
                     var incor: String = ""
                     for (i in 0 until incorrect) incor += "×"
                     time.setText(incor)
                 }
-
-                //right_ans_tv.text = "Правильные ответы: $points / $tries"
-                if (((limitation_mode == 0 || limitation_mode == 1) && tries == number_of_questions) ||
-                    (limitation_mode == 3 && incorrect == 3) || (tries == db.getSize())) {
-                    val intent = Intent(this,MarkActivity::class.java)
-                    intent.putExtra("points", points.toString())
-                    intent.putExtra("tries", tries.toString())
-                    startActivity(intent)
-
-                } else {
-
-                    right_option = (0..3).random()
-                    countries = getCountries(questions[ctr], right_option, db)
-                    ctr++
-                    img.setBackgroundResource(resources.getIdentifier("f" + countries[right_option].id, "drawable", packageName))
-                    val ratio = img.background.minimumWidth.toDouble() / img.background.minimumHeight
-                    if (ratio > 2)
-                    {
-                        params.width = pixels.toInt() * 2
-                        params.height = (pixels * 2 / ratio).toInt()
-                    }
-                    else
-                    {
-                        params.width = (ratio * pixels).toInt()
-                        params.height = pixels.toInt()
-                    }
-                    img.layoutParams = params
-                    country0.text = countries[0].country
-                    country1.text = countries[1].country
-                    country2.text = countries[2].country
-                    country3.text = countries[3].country
-                    country_btns[right_option].setBackgroundColor(Color.WHITE)
-                    country_btns[i].setBackgroundColor(Color.WHITE)
-                }
             }
+
+
         }
         if (limitation_mode == 2) {
             timer = object : CountDownTimer(counter, 1000) {
