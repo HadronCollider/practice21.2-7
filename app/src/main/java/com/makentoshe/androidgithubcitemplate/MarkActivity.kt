@@ -21,14 +21,19 @@ class MarkActivity : AppCompatActivity() {
         if (getIntentFromQuizActivity.hasExtra("points")) {
             tv.text = tv.text.toString() + getIntentFromQuizActivity.getStringExtra("points") + " / " + getIntentFromQuizActivity.getStringExtra("tries")
             val points = getIntentFromQuizActivity.getStringExtra("points")?.toInt()
-            fun congratulate (p:Int?) = when (p) {
-                10, 9, 8 -> tv_welldone.text = "Ты - молодец!"
-                7, 6, 5 -> tv_welldone.text = "Продолжай совершенствоваться!"
-                else -> tv_welldone.text = "Москва не сразу строилась!"
+            val total = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+            fun congratulate (p:Double?) {
+                if (p != null) {
+                    if (p.compareTo(0.8) == 1) tv_welldone.text = "Вы молодец!"
+                    else if (p.compareTo(0.5) == 1) tv_welldone.text = "Продолжайте совершенствоваться!"
+                    else tv_welldone.text = "Москва не сразу строилась!"
+                }
             }
 
             when (getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0)) {
-                0, 1 -> congratulate(points)
+                0, 1 -> if (points != null) {
+                    congratulate(points.toDouble() / total)
+                }
                 2 -> tv_welldone.text = "Время закончилось"
                 3 -> tv_welldone.text = "3 ошибки :( Игра закончилась"
             }
