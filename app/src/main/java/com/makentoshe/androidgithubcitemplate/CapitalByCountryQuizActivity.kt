@@ -2,26 +2,14 @@ package com.makentoshe.androidgithubcitemplate
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlin.random.Random
 import android.content.Intent
-import android.media.Image
-import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toDrawable
-import java.io.FileReader
 import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
-import java.io.File
 import android.widget.TextView
 import android.content.Context
-import android.content.SharedPreferences
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.preference.PreferenceManager
 import android.os.CountDownTimer
-import kotlinx.android.synthetic.main.activity_country_by_flag_quiz.*
 import java.text.DecimalFormat
-import java.text.NumberFormat
 
 
 class CapitalByCountryQuizActivity : AppCompatActivity() {
@@ -36,7 +24,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_capital_by_country_quiz)
 
-        val db = DataBase()
+        val db = DataBase(resources)
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)

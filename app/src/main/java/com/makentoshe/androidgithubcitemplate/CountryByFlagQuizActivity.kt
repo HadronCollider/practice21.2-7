@@ -5,22 +5,14 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
 import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_country_by_flag_quiz.*
-import kotlin.random.Random
 import android.content.Context
-import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import android.os.CountDownTimer
-import android.provider.ContactsContract
 import java.text.DecimalFormat
-import java.text.NumberFormat
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
 
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
@@ -36,7 +28,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_country_by_flag_quiz)
         //right_ans_tv.text = "Правильные ответы: $points / $tries"
-        val db = DataBase()
+        val db = DataBase(resources)
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
