@@ -37,7 +37,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
 
         val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
 
-        var countries = getCountries(questions[0], right_option, db)
+        var countries = db.get4Countries(questions[0], right_option)
         var ctr = 1
 
         val tv = findViewById<TextView>(R.id.tv_country)
@@ -68,10 +68,11 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
 
             } else {
                 right_option = (0..3).random()
-                countries = getCountries(questions[ctr], right_option, db)
+                countries = db.get4Countries(questions[ctr], right_option)
                 ctr++
                 for (k in 0 until capital_btns.size) {
                     capital_btns[k].setBackgroundColor(Color.WHITE)
+                    capital_btns[k].setTextColor(Color.BLACK)
                 }
 
                 if (limitation_mode < 2 && (tries + 1) <= number_of_questions) tv_time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
@@ -89,14 +90,17 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                 tries++
                 if (right_option == i) {
                     points++
-                    capital_btns[i].setBackgroundColor(Color.GREEN)
+                    capital_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
+                    capital_btns[i].setTextColor(Color.WHITE)
                     Handler(Looper.getMainLooper()).postDelayed({next_question()}, 1000)
 
                 } else  {
                     incorrect++
-                    capital_btns[i].setBackgroundColor(Color.RED)
-                    capital_btns[right_option].setBackgroundColor(Color.GREEN)
-                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, 1000)
+                    capital_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
+                    capital_btns[i].setTextColor(Color.WHITE)
+                    capital_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
+                    capital_btns[right_option].setTextColor(Color.WHITE)
+                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, 800)
                 }
 
                 if (limitation_mode == 3) {

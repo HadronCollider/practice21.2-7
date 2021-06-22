@@ -35,9 +35,56 @@ class DataBase(resources: Resources) {
         return data.size
     }
 
+    fun get4Countries(rightAnswer: CountryRow, rightOption: Int): List<CountryRow>
+    {
+        var _countries = getCountries(3).plus(rightAnswer)
+        while (true)
+        {
+            var flag = true
+            for (i in 0..2)
+            {
+                if(_countries[i].id == rightAnswer.id)
+                    flag = false
+            }
+            if (flag)
+                break
+            else
+                _countries = getCountries(3).plus(rightAnswer)
+        }
+        var countries: List<CountryRow> = listOf()
+        for (i in 0..2)
+        {
+            if (i == rightOption) countries = countries.plus(rightAnswer)
+            else countries = countries.plus(_countries[i])
+        }
+        countries = countries.plus(_countries[rightOption])
+        return countries
+    }
+
+    fun getByContinent(num: Int, continent: Int, this_cont: Boolean): List<CountryRow> {
+        var count = num
+        if (num > data.size)
+            count = data.size
+
+        val dataShuffled = data.shuffled()
+
+        var resData: List<CountryRow> = listOf()
+
+        var ctr = 0
+        var i = 0
+        while(ctr < num) {
+            if ((dataShuffled[i].continent == continent || (dataShuffled[i].continent == 8 && (continent == 0 || continent == 4))) == this_cont) {
+                resData = resData.plus(dataShuffled[i])
+                ctr++
+            }
+            i++
+        }
+        return resData
+    }
 }
 
 data class CountryRow (
     val id: String,
     val country: String,
-    val capital: String)
+    val capital: String,
+    val continent: Int)
