@@ -164,13 +164,13 @@ class ContinentActivity : AppCompatActivity() {
                 c_time.setText(incor)
             }
 
-            if (limitation_mode != 2) {
+            if (limitation_mode != 2 && delay != 0) {
                 Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
             }
             else next_question()
         }
 
-        if (limitation_mode == 2) {
+        if (limitation_mode == 2 && delay != 0) {
             timer = object : CountDownTimer(counter, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     var min = (millisUntilFinished / 60000) % 60
