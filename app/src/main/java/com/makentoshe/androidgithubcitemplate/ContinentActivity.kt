@@ -25,6 +25,8 @@ class ContinentActivity : AppCompatActivity() {
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
+        var delay: Int = getSharedPreferences("settings",
+            Context.MODE_PRIVATE).getInt("delay", 0)
 
         val db = DataBase(resources)
 
@@ -163,7 +165,7 @@ class ContinentActivity : AppCompatActivity() {
             }
 
             if (limitation_mode != 2) {
-                Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1500)
+                Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
             }
             else next_question()
         }

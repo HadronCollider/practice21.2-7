@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
 import android.os.Handler
 import android.os.Looper
 import androidx.core.content.res.ResourcesCompat
+import android.media.MediaPlayer
 
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
@@ -34,10 +35,16 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_country_by_flag_quiz)
 
+        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
+
         val db = DataBase(resources)
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
+
+        var delay: Int = getSharedPreferences("settings",
+            Context.MODE_PRIVATE).getInt("delay", 0)
 
         var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
@@ -126,20 +133,22 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 tries++
                 if (right_option == i) {
                     points++
+                    right_sound.start()
                     if(limitation_mode != 2) {
                         country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
                         country_btns[i].setTextColor(Color.WHITE)
-                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1000)
+                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                     }
                     else next_question()
                 } else {
                     incorrect++
+                    incorrect_sound.start()
                     if (limitation_mode != 2) {
                         country_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
                         country_btns[i].setTextColor(Color.WHITE)
                         country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
                         country_btns[right_option].setTextColor(Color.WHITE)
-                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1000)
+                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                     }
                     else next_question()
                 }

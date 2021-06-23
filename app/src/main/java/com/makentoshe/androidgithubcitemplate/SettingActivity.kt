@@ -8,9 +8,14 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.view.View
 import android.widget.*
+import android.widget.SeekBar
+import android.widget.TextView
+
 
 class SettingActivity : AppCompatActivity() {
     var radiobn: Int = 0
+    var delay: Int = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide();
@@ -30,9 +35,11 @@ class SettingActivity : AppCompatActivity() {
         num_oq_picker.displayedValues = pickerVals
 
         radiobn = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("limitations", 0)
-        num_oq_picker.value = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
+        delay = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("delay", 0)
+        num_oq_picker.value =
+            getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
-        when (radiobn){
+        when (radiobn) {
             0 -> radioGroup.check(R.id.radioclassic)
             1 -> radioGroup.check(R.id.radioclassic)
             2 -> radioGroup.check(R.id.radiotime)
@@ -42,8 +49,7 @@ class SettingActivity : AppCompatActivity() {
         if (radiobn != 1) {
             num_oq_picker.visibility = android.view.View.INVISIBLE
             num_oq_label.visibility = android.view.View.INVISIBLE
-        }
-        else {
+        } else {
             num_oq_picker.visibility = android.view.View.VISIBLE
             num_oq_label.visibility = android.view.View.VISIBLE
         }
@@ -57,8 +63,7 @@ class SettingActivity : AppCompatActivity() {
             if (radiobn != 1) {
                 num_oq_picker.visibility = android.view.View.INVISIBLE
                 num_oq_label.visibility = android.view.View.INVISIBLE
-            }
-            else {
+            } else {
                 num_oq_picker.visibility = android.view.View.VISIBLE
                 num_oq_label.visibility = android.view.View.VISIBLE
             }
@@ -71,6 +76,7 @@ class SettingActivity : AppCompatActivity() {
             val editor = pref.edit()
 
             editor.putInt("limitations", radiobn)
+            editor.putInt("delay", delay)
             if (num_oq_picker.value != 0 && num_oq_picker.value <= 194)
                 editor.putInt("numOQ", num_oq_picker.value)
             else
@@ -79,6 +85,18 @@ class SettingActivity : AppCompatActivity() {
             editor.apply()
             startActivity(intent)
         }
-    }
 
+        val seekBar: SeekBar = findViewById(R.id.seekBar_delay)
+        findViewById<TextView>(R.id.tv_delay).text = "Время задержки (в секундах): ${(delay.toFloat() / 2)}"
+        seekBar.progress = delay
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                findViewById<TextView>(R.id.tv_delay).text = "Время задержки (в секундах): ${(progress.toFloat() / 2)}"
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar) {   }
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                delay = seekBar.getProgress()
+            }
+            })
     }
+}
