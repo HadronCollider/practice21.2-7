@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
 import android.widget.TextView
 import android.content.Context
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.CountDownTimer
 import java.text.DecimalFormat
 import java.text.NumberFormat
