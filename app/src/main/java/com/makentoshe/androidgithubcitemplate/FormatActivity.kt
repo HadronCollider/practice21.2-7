@@ -27,6 +27,10 @@ class FormatActivity : AppCompatActivity() {
             val intent = Intent(this, ContinentActivity::class.java)
             startActivity(intent)
         }
+        findViewById<Button>(R.id.b_cities).setOnClickListener {
+            val intent = Intent(this, CitiesActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

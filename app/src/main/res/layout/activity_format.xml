@@ -57,16 +57,16 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/b_large_cities"
+        android:id="@+id/b_cities"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="50dp"
         android:fontFamily="sans-serif"
-        android:text="Крупнейшие города"
+        android:text="Города"
         android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/b_all" />
 
     <Button

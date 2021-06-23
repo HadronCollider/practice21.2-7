@@ -25,6 +25,8 @@ class ContinentActivity : AppCompatActivity() {
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
+        var delay: Int = getSharedPreferences("settings",
+            Context.MODE_PRIVATE).getInt("delay", 0)
 
         val db = DataBase(resources)
 
@@ -62,7 +64,7 @@ class ContinentActivity : AppCompatActivity() {
                     selected[i] = false
                 }
 
-                _Continent = if ((0..3).random() != 0) arrayOf(0, 1, 3, 4).random() else arrayOf(2, 5).random()
+                _Continent = if ((0..3).random() != 0) arrayOf(0, 1, 2, 4).random() else arrayOf(2, 5).random()
                 numOfCorrect = (3..7).random()
                 val countries = db.getByContinent(10 - numOfCorrect, _Continent, false).plus(db.getByContinent(numOfCorrect, _Continent, true)).shuffled()
                 textViewС.setText(continents[_Continent])
@@ -162,13 +164,13 @@ class ContinentActivity : AppCompatActivity() {
                 c_time.setText(incor)
             }
 
-            if (limitation_mode != 2) {
-                Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1500)
+            if (limitation_mode != 2 && delay != 0) {
+                Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
             }
             else next_question()
         }
 
-        if (limitation_mode == 2) {
+        if (limitation_mode == 2 && delay != 0) {
             timer = object : CountDownTimer(counter, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     var min = (millisUntilFinished / 60000) % 60
@@ -185,5 +187,9 @@ class ContinentActivity : AppCompatActivity() {
                 }
             }.start()
         }
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (this::timer.isInitialized) timer.cancel()
     }
 }

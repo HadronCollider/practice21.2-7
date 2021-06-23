@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CapitalByCountryQuizActivity"
-    android:orientation="vertical"
     android:background="@color/bgcolor"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".CapitalByCountryQuizActivity">
 
     <TextView
         android:id="@+id/tv_time"
@@ -27,15 +27,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Какая столица у этой страны?"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:layout_gravity="center"
-        android:textSize="25dp"
-        android:textColor="@android:color/black"
-        android:textAlignment="center"
+        android:paddingLeft="10dp"
         android:paddingTop="20dp"
+        android:paddingRight="10dp"
         android:paddingBottom="20dp"
+        android:text="Какая столица у этой страны?"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
 
         />
 
@@ -55,7 +55,6 @@
         android:textSize="30dp" />
 
 
-
     <Button
         android:id="@+id/capital0"
         android:layout_width="360dp"
@@ -64,10 +63,10 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Москва"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/capital1"
@@ -77,10 +76,10 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Лондон"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/capital2"
@@ -90,10 +89,10 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Париж"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/capital3"
@@ -103,10 +102,10 @@
         android:layout_marginTop="30dp"
         android:background="@android:color/white"
         android:text="Берлин"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
 
 
     <LinearLayout
@@ -114,8 +113,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="10dp"
-        tools:ignore="ExtraText">
-    </LinearLayout>
+        tools:ignore="ExtraText"></LinearLayout>
 
 
 </LinearLayout>
