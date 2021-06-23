@@ -35,7 +35,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
 
         var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
-        val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
+        val questions = db.getCountries(if (number_of_questions <= db.getSize() && limitation_mode < 2) number_of_questions else db.getSize())
 
         var countries = db.get4Countries(questions[0], right_option)
         var ctr = 1
@@ -100,7 +100,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                     capital_btns[i].setTextColor(Color.WHITE)
                     capital_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
                     capital_btns[right_option].setTextColor(Color.WHITE)
-                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, 800)
+                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, 1000)
                 }
 
                 if (limitation_mode == 3) {
@@ -129,31 +129,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
             }.start()
         }
     }
-    fun getCountries(rightAnswer: CountryRow, rightOption: Int, db: DataBase): List<CountryRow>
-    {
-        var _countries = db.getCountries(3).plus(rightAnswer)
-        while (true)
-        {
-            var flag = true
-            for (i in 0..2)
-            {
-                if(_countries[i].id == rightAnswer.id)
-                    flag = false
-            }
-            if (flag)
-                break
-            else
-                _countries = db.getCountries(3).plus(rightAnswer)
-        }
-        var countries: List<CountryRow> = listOf()
-        for (i in 0..2)
-        {
-            if (i == rightOption) countries = countries.plus(rightAnswer)
-            else countries = countries.plus(_countries[i])
-        }
-        countries = countries.plus(_countries[rightOption])
-        return countries
-    }
+
     override fun onBackPressed() {
         super.onBackPressed()
         if (this::timer.isInitialized) timer.cancel()

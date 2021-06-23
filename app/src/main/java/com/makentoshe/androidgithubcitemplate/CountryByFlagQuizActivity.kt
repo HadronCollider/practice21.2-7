@@ -41,7 +41,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
 
         var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
-        val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
+        val questions = db.getCountries(if (number_of_questions <= db.getSize() && limitation_mode < 2) number_of_questions else db.getSize())
 
         var countries = db.get4Countries(questions[0], right_option)
         var ctr = 1
@@ -139,7 +139,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                         country_btns[i].setTextColor(Color.WHITE)
                         country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
                         country_btns[right_option].setTextColor(Color.WHITE)
-                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 800)
+                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1000)
                     }
                     else next_question()
                 }
