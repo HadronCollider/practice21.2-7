@@ -39,6 +39,9 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
 
+        var delay: Int = getSharedPreferences("settings",
+            Context.MODE_PRIVATE).getInt("delay", 0)
+
         var number_of_questions: Int = getSharedPreferences("settings", Context.MODE_PRIVATE).getInt("numOQ", 10)
 
         val questions = db.getCountries(if (limitation_mode < 2) number_of_questions else db.getSize())
@@ -129,7 +132,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     if(limitation_mode != 2) {
                         country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
                         country_btns[i].setTextColor(Color.WHITE)
-                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 1000)
+                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                     }
                     else next_question()
                 } else {
@@ -139,7 +142,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                         country_btns[i].setTextColor(Color.WHITE)
                         country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
                         country_btns[right_option].setTextColor(Color.WHITE)
-                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, 800)
+                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                     }
                     else next_question()
                 }

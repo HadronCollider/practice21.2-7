@@ -16,6 +16,23 @@
         android:layout_gravity="center_horizontal"
         android:text="Настройки"
         android:textSize="48sp" />
+    <TextView
+        android:id="@+id/tv_delay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Время задержки между вопросами"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <SeekBar
+        android:id="@+id/seekBar_delay"
+        android:layout_marginTop="20dp"
+        android:max="10"
+        android:progress="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -86,8 +103,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/radiogroup"
-        android:layout_marginTop="20dp"
-        android:text="Готово"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Готово" />
+
 
 </LinearLayout>
