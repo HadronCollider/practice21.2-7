@@ -11,6 +11,8 @@ import android.os.Looper
 import kotlinx.android.synthetic.main.activity_continent.*
 import kotlinx.android.synthetic.main.activity_country_by_flag_quiz.*
 import java.text.DecimalFormat
+import androidx.core.content.res.ResourcesCompat
+import android.media.MediaPlayer
 
 class ContinentActivity : AppCompatActivity() {
 
@@ -22,6 +24,9 @@ class ContinentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide();
         setContentView(R.layout.activity_continent)
+
+        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
@@ -152,7 +157,9 @@ class ContinentActivity : AppCompatActivity() {
             if (curr_points < 9)
             {
                 incorrect += 1
+                incorrect_sound.start()
             }
+            else right_sound.start()
 
             if (limitation_mode < 2)
             {
@@ -170,7 +177,7 @@ class ContinentActivity : AppCompatActivity() {
             else next_question()
         }
 
-        if (limitation_mode == 2 && delay != 0) {
+        if (limitation_mode == 2) {
             timer = object : CountDownTimer(counter, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     var min = (millisUntilFinished / 60000) % 60
