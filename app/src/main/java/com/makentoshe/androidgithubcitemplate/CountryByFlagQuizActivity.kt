@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
 import android.os.Handler
 import android.os.Looper
 import androidx.core.content.res.ResourcesCompat
+import android.media.MediaPlayer
 
 
 class CountryByFlagQuizActivity : AppCompatActivity() {
@@ -33,6 +34,9 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide();
         setContentView(R.layout.activity_country_by_flag_quiz)
+
+        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         val db = DataBase(resources)
 
@@ -129,6 +133,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 tries++
                 if (right_option == i) {
                     points++
+                    right_sound.start()
                     if(limitation_mode != 2) {
                         country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
                         country_btns[i].setTextColor(Color.WHITE)
@@ -137,6 +142,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     else next_question()
                 } else {
                     incorrect++
+                    incorrect_sound.start()
                     if (limitation_mode != 2) {
                         country_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
                         country_btns[i].setTextColor(Color.WHITE)

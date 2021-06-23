@@ -13,6 +13,7 @@ import java.text.DecimalFormat
 import java.text.NumberFormat
 import android.os.Handler
 import android.os.Looper
+import android.media.MediaPlayer
 
 
 
@@ -27,6 +28,9 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide();
         setContentView(R.layout.activity_capital_by_country_quiz)
+
+        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         val db = DataBase(resources)
 
@@ -92,12 +96,14 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                 tries++
                 if (right_option == i) {
                     points++
+                    right_sound.start()
                     capital_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
                     capital_btns[i].setTextColor(Color.WHITE)
                     Handler(Looper.getMainLooper()).postDelayed({next_question()}, delay.toLong() * 500)
 
                 } else  {
                     incorrect++
+                    incorrect_sound.start()
                     capital_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
                     capital_btns[i].setTextColor(Color.WHITE)
                     capital_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
