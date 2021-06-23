@@ -97,18 +97,28 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                 if (right_option == i) {
                     points++
                     right_sound.start()
-                    capital_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                    capital_btns[i].setTextColor(Color.WHITE)
-                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, delay.toLong() * 500)
+                    if (limitation_mode != 2 && delay != 0) {
+                        capital_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
+                        capital_btns[i].setTextColor(Color.WHITE)
+                        Handler(Looper.getMainLooper()).postDelayed(
+                            { next_question() },
+                            delay.toLong() * 500)
+                    }
+                    else next_question()
 
                 } else  {
                     incorrect++
                     incorrect_sound.start()
-                    capital_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
-                    capital_btns[i].setTextColor(Color.WHITE)
-                    capital_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                    capital_btns[right_option].setTextColor(Color.WHITE)
-                    Handler(Looper.getMainLooper()).postDelayed({next_question()}, delay.toLong() * 500)
+                    if (limitation_mode != 2 && delay != 0) {
+                        capital_btns[i].setBackgroundColor(Color.argb(255, 255, 92, 68))
+                        capital_btns[i].setTextColor(Color.WHITE)
+                        capital_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
+                        capital_btns[right_option].setTextColor(Color.WHITE)
+                        Handler(Looper.getMainLooper()).postDelayed(
+                            { next_question() },
+                            delay.toLong() * 500)
+                    }
+                    else  next_question()
                 }
 
                 if (limitation_mode == 3) {

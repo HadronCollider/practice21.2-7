@@ -134,7 +134,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 if (right_option == i) {
                     points++
                     right_sound.start()
-                    if(limitation_mode != 2) {
+                    if(limitation_mode != 2 && delay != 0) {
                         country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
                         country_btns[i].setTextColor(Color.WHITE)
                         Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
@@ -143,7 +143,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 } else {
                     incorrect++
                     incorrect_sound.start()
-                    if (limitation_mode != 2) {
+                    if (limitation_mode != 2 && delay != 0) {
                         country_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
                         country_btns[i].setTextColor(Color.WHITE)
                         country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
