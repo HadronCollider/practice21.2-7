@@ -19,6 +19,7 @@
         android:textSize="34sp"
         android:layout_marginBottom="30dp"/>
 
+
     <Button
         android:id="@+id/b_capitals"
         android:layout_width="300dp"
