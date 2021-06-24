@@ -50,7 +50,7 @@ class ContinentActivity : AppCompatActivity() {
         var counter: Long = 60000
 
         if (limitation_mode == 3) {
-            c_time.setTextColor(Color.parseColor("#FFFFFF"))
+            c_time.setTextColor(Color.parseColor("#FF0000"))
             c_time.setText("")
         }
 
