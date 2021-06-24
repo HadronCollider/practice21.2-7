@@ -96,8 +96,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                         points++
                         right_sound.start()
                         if (limitation_mode != 2 && delay != 0) {
-                            capital_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                            capital_btns[i].setTextColor(Color.WHITE)
+                            capital_btns[i].setBackgroundResource(R.drawable.city_shape_correct)
                             Handler(Looper.getMainLooper()).postDelayed(
                                 { next_question() },
                                 delay.toLong() * 500)
@@ -111,10 +110,8 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                         incorrect++
                         incorrect_sound.start()
                         if (limitation_mode != 2 && delay != 0) {
-                            capital_btns[i].setBackgroundColor(Color.argb(255, 255, 92, 68))
-                            capital_btns[i].setTextColor(Color.WHITE)
-                            capital_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                            capital_btns[right_option].setTextColor(Color.WHITE)
+                            capital_btns[i].setBackgroundResource(R.drawable.city_shape_incorrect)
+                            capital_btns[right_option].setBackgroundResource(R.drawable.city_shape_answer)
                             Handler(Looper.getMainLooper()).postDelayed(
                                 { next_question() },
                                 delay.toLong() * 500)
