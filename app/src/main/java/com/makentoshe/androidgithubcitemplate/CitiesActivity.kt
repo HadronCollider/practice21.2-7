@@ -84,42 +84,51 @@ class CitiesActivity : AppCompatActivity() {
                 ctr++
 
             }
-        }
-
-        next_question()
-        for (i in 0 until city_btns.size) {
-            city_btns[i].setOnClickListener {
-                tries++
-                if (right_option == i) {
-                    points++
-                    right_sound.start()
-                    if(limitation_mode != 2 && delay != 0) {
-                        city_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                        city_btns[i].setTextColor(Color.WHITE)
-                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+            for (i in 0 until city_btns.size) {
+                city_btns[i].setOnClickListener {
+                    tries++
+                    if (right_option == i) {
+                        points++
+                        right_sound.start()
+                        if(limitation_mode != 2 && delay != 0) {
+                            city_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
+                            city_btns[i].setTextColor(Color.WHITE)
+                            Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+                            for (k in 0 until city_btns.size)
+                            {
+                                city_btns[i].setOnClickListener {}
+                            }
+                        }
+                        else next_question()
+                    } else {
+                        incorrect++
+                        incorrect_sound.start()
+                        if (limitation_mode != 2 && delay != 0) {
+                            city_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
+                            city_btns[i].setTextColor(Color.WHITE)
+                            city_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
+                            city_btns[right_option].setTextColor(Color.WHITE)
+                            Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+                            for (k in 0 until city_btns.size)
+                            {
+                                city_btns[i].setOnClickListener {}
+                            }
+                        }
+                        else next_question()
                     }
-                    else next_question()
-                } else {
-                    incorrect++
-                    incorrect_sound.start()
-                    if (limitation_mode != 2 && delay != 0) {
-                        city_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
-                        city_btns[i].setTextColor(Color.WHITE)
-                        city_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                        city_btns[right_option].setTextColor(Color.WHITE)
-                        Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+
+
+                    if (limitation_mode == 3) {
+                        var incor: String = ""
+                        for (i in 0 until incorrect) incor += "×"
+                        city_time.setText(incor)
                     }
-                    else next_question()
-                }
-
-
-                if (limitation_mode == 3) {
-                    var incor: String = ""
-                    for (i in 0 until incorrect) incor += "×"
-                    city_time.setText(incor)
                 }
             }
         }
+
+        next_question()
+
 
         if (limitation_mode == 2) {
             timer = object : CountDownTimer(counter, 1000) {
