@@ -25,7 +25,7 @@ class ContinentActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_continent)
 
-        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var right_sound = MediaPlayer.create(this, R.raw.correct4)
         var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         var limitation_mode: Int = getSharedPreferences("settings",

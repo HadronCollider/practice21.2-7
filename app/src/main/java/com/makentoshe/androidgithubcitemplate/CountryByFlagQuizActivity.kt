@@ -35,7 +35,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_country_by_flag_quiz)
 
-        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var right_sound = MediaPlayer.create(this, R.raw.correct4)
         var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         val db = DataBase(resources)

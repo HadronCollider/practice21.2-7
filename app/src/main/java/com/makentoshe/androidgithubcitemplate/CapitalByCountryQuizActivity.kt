@@ -29,7 +29,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_capital_by_country_quiz)
 
-        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var right_sound = MediaPlayer.create(this, R.raw.correct4)
         var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         val db = DataBase(resources)
