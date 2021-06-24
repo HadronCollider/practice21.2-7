@@ -26,8 +26,10 @@
 
     <Button
         android:id="@+id/b_flags"
-        android:layout_width="303dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="54dp"
         android:background="@drawable/city_shape"
         android:fontFamily="@font/open_sans_bold"
         android:text="Флаги"
@@ -35,13 +37,16 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/b_continents"
-        app:layout_constraintTop_toBottomOf="@+id/b_capitals"
-        tools:layout_editor_absoluteX="54dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_capitals" />
 
     <Button
         android:id="@+id/b_capitals"
-        android:layout_width="303dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="54dp"
         android:background="@drawable/city_shape"
         android:fontFamily="@font/open_sans_bold"
         android:text="Столицы"
@@ -49,13 +54,16 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/b_flags"
-        app:layout_constraintTop_toBottomOf="@+id/fTextView"
-        tools:layout_editor_absoluteX="54dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fTextView" />
 
     <Button
         android:id="@+id/b_continents"
-        android:layout_width="303dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="54dp"
         android:background="@drawable/city_shape"
         android:fontFamily="@font/open_sans_bold"
         android:text="Части света"
@@ -63,13 +71,16 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/b_cities"
-        app:layout_constraintTop_toBottomOf="@+id/b_flags"
-        tools:layout_editor_absoluteX="54dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_flags" />
 
     <Button
         android:id="@+id/b_cities"
-        android:layout_width="303dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginEnd="54dp"
         android:background="@drawable/city_shape"
         android:fontFamily="@font/open_sans_bold"
         android:text="Города"
@@ -77,15 +88,19 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_continents"
-        tools:layout_editor_absoluteX="54dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_continents" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fTextView"
         tools:ignore="ExtraText" />
 
 
