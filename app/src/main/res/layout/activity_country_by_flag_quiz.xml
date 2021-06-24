@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CountryByFlagQuizActivity"
+    android:background="#2D9AFF"
+    android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/bgcolor"
-    android:gravity="center">
+    tools:context=".CountryByFlagQuizActivity">
+
 
     <TextView
         android:id="@+id/time"
@@ -20,121 +21,156 @@
         android:paddingBottom="20dp"
         android:text=""
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-
+        android:textColor="#FFFFFF"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Какой стране принадлежит этот флаг?"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:layout_gravity="center"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:textAlignment="center"
+        android:background="@drawable/radius_up"
+        android:fontFamily="@font/open_sans_bold"
+        android:paddingLeft="10dp"
         android:paddingTop="20dp"
+        android:paddingRight="10dp"
         android:paddingBottom="20dp"
+        android:text="Флаги"
 
-        />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2" />
 
     <ImageView
         android:id="@+id/country_img"
-        android:layout_width="360dp"
+        android:layout_width="361dp"
         android:layout_height="180dp"
         android:layout_gravity="center"
+        android:layout_marginTop="8dp"
         android:background="@drawable/f1"
         android:backgroundTintMode="src_atop"
         android:foregroundGravity="clip_horizontal|clip_vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time" />
 
     <Button
         android:id="@+id/country0"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/white"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
         android:text="Польша"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country_img" />
 
     <Button
         android:id="@+id/country1"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/white"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
         android:text="Австралия"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country0" />
 
     <Button
         android:id="@+id/country2"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/white"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
         android:text="Россия"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country1" />
 
     <Button
         android:id="@+id/country3"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/white"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
         android:text="Франция"
-        android:textColor="@android:color/black"
-        android:textSize="25sp"
         android:textAlignment="center"
-        android:textAllCaps="false"/>
-
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country2" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ExtraText">
 
-<!--        <ImageView-->
-<!--            android:layout_width="25dp"-->
-<!--            android:layout_height="25dp"-->
-<!--            android:paddingBottom="10dp"-->
-<!--            android:background="@drawable/home"-->
-<!--            />-->
+        <!--        <ImageView-->
+        <!--            android:layout_width="25dp"-->
+        <!--            android:layout_height="25dp"-->
+        <!--            android:paddingBottom="10dp"-->
+        <!--            android:background="@drawable/home"-->
+        <!--            />-->
 
 
-<!--        <TextView-->
-<!--            android:id="@+id/right_ans_tv"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Правильные ответы: 0 / 1"-->
-<!--            android:textColor="@android:color/black"-->
-<!--            android:paddingLeft="95dp"-->
-<!--            android:textAlignment="center"/>-->
-
-
-
-
-
+        <!--        <TextView-->
+        <!--            android:id="@+id/right_ans_tv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Правильные ответы: 0 / 1"-->
+        <!--            android:textColor="@android:color/black"-->
+        <!--            android:paddingLeft="95dp"-->
+        <!--            android:textAlignment="center"/>-->
 
 
     </LinearLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

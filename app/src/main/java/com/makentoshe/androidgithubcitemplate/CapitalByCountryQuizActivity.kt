@@ -142,7 +142,6 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                     right_sound.start()
                     if (limitation_mode != 2 && delay != 0) {
                         capital_btns[i].setBackgroundResource(R.drawable.city_shape_correct)
-                        capital_btns[i].setTextColor(Color.WHITE)
                         Handler(Looper.getMainLooper()).postDelayed(
                             { next_question() },
                             delay.toLong() * 500)
