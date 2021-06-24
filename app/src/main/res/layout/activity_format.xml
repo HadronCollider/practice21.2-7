@@ -1,87 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DCD6C6"
-    tools:context=".FormatActivity"
+    android:background="#2D9AFF"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".FormatActivity">
+
 
     <TextView
         android:id="@+id/fTextView"
-        android:layout_width="322dp"
+        android:layout_width="341dp"
         android:layout_height="98dp"
-        android:fontFamily="sans-serif"
-        android:text="Выберите формат викторины:"
+        android:background="@drawable/radius_up"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Формат"
         android:textAlignment="center"
-        android:textSize="34sp"
-        android:layout_marginBottom="30dp"/>
-
-    <Button
-        android:id="@+id/b_capitals"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif"
-        android:text="Столицы"
-        android:textAllCaps="false"
-        android:textSize="24sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/b_flags"
-        android:layout_width="300dp"
+        android:layout_width="303dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
         android:text="Флаги"
         android:textAllCaps="false"
-        android:textSize="24sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/b_continents"
+        app:layout_constraintTop_toBottomOf="@+id/b_capitals"
+        tools:layout_editor_absoluteX="54dp" />
 
+    <Button
+        android:id="@+id/b_capitals"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Столицы"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/b_flags"
+        app:layout_constraintTop_toBottomOf="@+id/fTextView"
+        tools:layout_editor_absoluteX="54dp" />
 
     <Button
         android:id="@+id/b_continents"
-        android:layout_width="300dp"
+        android:layout_width="303dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
         android:text="Части света"
         android:textAllCaps="false"
-        android:textSize="24sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/b_cities"
+        app:layout_constraintTop_toBottomOf="@+id/b_flags"
+        tools:layout_editor_absoluteX="54dp" />
 
     <Button
         android:id="@+id/b_cities"
-        android:layout_width="300dp"
+        android:layout_width="303dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif"
+        android:background="@drawable/city_shape"
+        android:fontFamily="@font/open_sans_bold"
         android:text="Города"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/b_all" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_continents"
+        tools:layout_editor_absoluteX="54dp" />
 
-    <Button
-        android:id="@+id/b_all"
-        android:layout_width="300dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif"
-        android:text="Всё вместе"
-        android:textAllCaps="false"
-        android:textSize="24sp" />
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        tools:ignore="ExtraText" />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
