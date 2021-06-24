@@ -114,8 +114,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 img.layoutParams = params
 
                 for (k in 0 until country_btns.size) {
-                    country_btns[k].setBackgroundColor(Color.WHITE)
-                    country_btns[k].setTextColor(Color.BLACK)
+                    country_btns[k].setBackgroundResource(R.drawable.city_shape)
                 }
 
                 if (limitation_mode < 2 && (tries + 1) <= number_of_questions) time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
@@ -133,8 +132,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                         points++
                         right_sound.start()
                         if(limitation_mode != 2 && delay != 0) {
-                            country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                            country_btns[i].setTextColor(Color.WHITE)
+                            country_btns[i].setBackgroundResource(R.drawable.city_shape_correct)
                             Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                             for (k in 0 until country_btns.size)
                             {
@@ -146,10 +144,8 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                         incorrect++
                         incorrect_sound.start()
                         if (limitation_mode != 2 && delay != 0) {
-                            country_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
-                            country_btns[i].setTextColor(Color.WHITE)
-                            country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                            country_btns[right_option].setTextColor(Color.WHITE)
+                            country_btns[i].setBackgroundResource(R.drawable.city_shape_incorrect)
+                            country_btns[right_option].setBackgroundResource(R.drawable.city_shape_answer)
                             Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                             for (k in 0 until country_btns.size)
                             {
@@ -178,8 +174,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     points++
                     right_sound.start()
                     if(limitation_mode != 2 && delay != 0) {
-                        country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                        country_btns[i].setTextColor(Color.WHITE)
+                        country_btns[i].setBackgroundResource(R.drawable.city_shape_correct)
                         Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                         for (k in 0 until country_btns.size)
                         {
@@ -191,10 +186,8 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                     incorrect++
                     incorrect_sound.start()
                     if (limitation_mode != 2 && delay != 0) {
-                        country_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
-                        country_btns[i].setTextColor(Color.WHITE)
-                        country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                        country_btns[right_option].setTextColor(Color.WHITE)
+                        country_btns[i].setBackgroundResource(R.drawable.city_shape_incorrect)
+                        country_btns[right_option].setBackgroundResource(R.drawable.city_shape_answer)
                         Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                         for (k in 0 until country_btns.size)
                         {

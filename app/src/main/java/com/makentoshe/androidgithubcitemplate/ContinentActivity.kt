@@ -50,7 +50,7 @@ class ContinentActivity : AppCompatActivity() {
         var counter: Long = 60000
 
         if (limitation_mode == 3) {
-            c_time.setTextColor(Color.parseColor("#FF0000"))
+            c_time.setTextColor(Color.parseColor("#FFFFFF"))
             c_time.setText("")
         }
 
@@ -60,23 +60,19 @@ class ContinentActivity : AppCompatActivity() {
             for (k in 0 until cont_btns.size) {
                 if (selected[k] && right[k])
                 {
-                    cont_btns[k].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                    cont_btns[k].setTextColor(Color.WHITE)
+                    cont_btns[k].setBackgroundResource(R.drawable.city_shape_correct)
                 }
                 else if (selected[k] && !right[k])
                 {
-                    cont_btns[k].setBackgroundColor(Color.argb(255,255, 92, 68))
-                    cont_btns[k].setTextColor(Color.WHITE)
+                    cont_btns[k].setBackgroundResource(R.drawable.city_shape_incorrect)
                 }
                 else if (!selected[k] && right[k])
                 {
-                    cont_btns[k].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                    cont_btns[k].setTextColor(Color.WHITE)
+                    cont_btns[k].setBackgroundResource(R.drawable.city_shape_answer)
                 }
                 else
                 {
-                    cont_btns[k].setBackgroundColor(Color.WHITE)
-                    cont_btns[k].setTextColor(Color.BLACK)
+                    cont_btns[k].setBackgroundResource(R.drawable.city_shape)
                 }
             }
         }
@@ -102,8 +98,7 @@ class ContinentActivity : AppCompatActivity() {
                 textViewС.setText(continents[_Continent])
 
                 for (k in 0 until cont_btns.size) {
-                    cont_btns[k].setBackgroundColor(Color.WHITE)
-                    cont_btns[k].setTextColor(Color.BLACK)
+                    cont_btns[k].setBackgroundResource(R.drawable.city_shape)
                     if (countries[k].continent == _Continent || ((_Continent == 0 || _Continent == 4) && countries[k].continent == 8))
                         right[k] = true
                 }
@@ -159,13 +154,11 @@ class ContinentActivity : AppCompatActivity() {
             for (k in 0 until cont_btns.size) {
                 if (selected[k])
                 {
-                    cont_btns[k].setBackgroundColor(Color.argb(255, 71, 178, 206))
-                    cont_btns[k].setTextColor(Color.WHITE)
+                    cont_btns[k].setBackgroundResource(R.drawable.city_shape_selected)
                 }
                 else
                 {
-                    cont_btns[k].setBackgroundColor(Color.WHITE)
-                    cont_btns[k].setTextColor(Color.BLACK)
+                    cont_btns[k].setBackgroundResource(R.drawable.city_shape)
                 }
             }
         }
