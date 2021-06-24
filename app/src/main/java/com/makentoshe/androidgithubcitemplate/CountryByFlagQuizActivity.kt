@@ -35,7 +35,7 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_country_by_flag_quiz)
 
-        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var right_sound = MediaPlayer.create(this, R.raw.correct4)
         var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         val db = DataBase(resources)
@@ -126,6 +126,49 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                 country3.text = countries[3].country
 
             }
+            for (i in 0 until country_btns.size) {
+                country_btns[i].setOnClickListener {
+                    tries++
+                    if (right_option == i) {
+                        points++
+                        right_sound.start()
+                        if(limitation_mode != 2 && delay != 0) {
+                            country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
+                            country_btns[i].setTextColor(Color.WHITE)
+                            Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+                            for (k in 0 until country_btns.size)
+                            {
+                                country_btns[i].setOnClickListener {}
+                            }
+                        }
+                        else next_question()
+                    } else {
+                        incorrect++
+                        incorrect_sound.start()
+                        if (limitation_mode != 2 && delay != 0) {
+                            country_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
+                            country_btns[i].setTextColor(Color.WHITE)
+                            country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
+                            country_btns[right_option].setTextColor(Color.WHITE)
+                            Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+                            for (k in 0 until country_btns.size)
+                            {
+                                country_btns[i].setOnClickListener {}
+                            }
+                        }
+                        else next_question()
+                    }
+
+
+                    if (limitation_mode == 3) {
+                        var incor: String = ""
+                        for (i in 0 until incorrect) incor += "×"
+                        time.setText(incor)
+                    }
+                }
+
+
+            }
         }
 
         for (i in 0 until country_btns.size) {
@@ -138,6 +181,10 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                         country_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
                         country_btns[i].setTextColor(Color.WHITE)
                         Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+                        for (k in 0 until country_btns.size)
+                        {
+                            country_btns[i].setOnClickListener {}
+                        }
                     }
                     else next_question()
                 } else {
@@ -149,6 +196,10 @@ class CountryByFlagQuizActivity : AppCompatActivity() {
                         country_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
                         country_btns[right_option].setTextColor(Color.WHITE)
                         Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+                        for (k in 0 until country_btns.size)
+                        {
+                            country_btns[i].setOnClickListener {}
+                        }
                     }
                     else next_question()
                 }

@@ -29,7 +29,7 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
         supportActionBar?.hide();
         setContentView(R.layout.activity_capital_by_country_quiz)
 
-        var right_sound = MediaPlayer.create(this, R.raw.correct3)
+        var right_sound = MediaPlayer.create(this, R.raw.correct4)
         var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         val db = DataBase(resources)
@@ -89,6 +89,50 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                 capital2.text = countries[2].capital
                 capital3.text = countries[3].capital
             }
+
+            for (i in 0 until capital_btns.size) {
+                capital_btns[i].setOnClickListener {
+                    tries++
+                    if (right_option == i) {
+                        points++
+                        right_sound.start()
+                        if (limitation_mode != 2 && delay != 0) {
+                            capital_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
+                            capital_btns[i].setTextColor(Color.WHITE)
+                            Handler(Looper.getMainLooper()).postDelayed(
+                                { next_question() },
+                                delay.toLong() * 500)
+                            for (i in 0 until capital_btns.size) {
+                                capital_btns[i].setOnClickListener { }
+                            }
+                        }
+                        else next_question()
+
+                    } else  {
+                        incorrect++
+                        incorrect_sound.start()
+                        if (limitation_mode != 2 && delay != 0) {
+                            capital_btns[i].setBackgroundColor(Color.argb(255, 255, 92, 68))
+                            capital_btns[i].setTextColor(Color.WHITE)
+                            capital_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
+                            capital_btns[right_option].setTextColor(Color.WHITE)
+                            Handler(Looper.getMainLooper()).postDelayed(
+                                { next_question() },
+                                delay.toLong() * 500)
+                            for (i in 0 until capital_btns.size) {
+                                capital_btns[i].setOnClickListener { }
+                            }
+                        }
+                        else  next_question()
+                    }
+
+                    if (limitation_mode == 3) {
+                        var incor: String = ""
+                        for (i in 0 until incorrect) incor += "× "
+                        tv_time.setText(incor)
+                    }
+                }
+            }
         }
 
         for (i in 0 until capital_btns.size) {
@@ -103,6 +147,9 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                         Handler(Looper.getMainLooper()).postDelayed(
                             { next_question() },
                             delay.toLong() * 500)
+                        for (i in 0 until capital_btns.size) {
+                            capital_btns[i].setOnClickListener { }
+                        }
                     }
                     else next_question()
 
@@ -117,6 +164,9 @@ class CapitalByCountryQuizActivity : AppCompatActivity() {
                         Handler(Looper.getMainLooper()).postDelayed(
                             { next_question() },
                             delay.toLong() * 500)
+                        for (i in 0 until capital_btns.size) {
+                            capital_btns[i].setOnClickListener { }
+                        }
                     }
                     else  next_question()
                 }

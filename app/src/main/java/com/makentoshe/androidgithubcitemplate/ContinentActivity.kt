@@ -11,6 +11,8 @@ import android.os.Looper
 import kotlinx.android.synthetic.main.activity_continent.*
 import kotlinx.android.synthetic.main.activity_country_by_flag_quiz.*
 import java.text.DecimalFormat
+import androidx.core.content.res.ResourcesCompat
+import android.media.MediaPlayer
 
 class ContinentActivity : AppCompatActivity() {
 
@@ -22,6 +24,9 @@ class ContinentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide();
         setContentView(R.layout.activity_continent)
+
+        var right_sound = MediaPlayer.create(this, R.raw.correct4)
+        var incorrect_sound = MediaPlayer.create(this, R.raw.incorrect2)
 
         var limitation_mode: Int = getSharedPreferences("settings",
             Context.MODE_PRIVATE).getInt("limitations", 0)
@@ -47,6 +52,33 @@ class ContinentActivity : AppCompatActivity() {
         if (limitation_mode == 3) {
             c_time.setTextColor(Color.parseColor("#FF0000"))
             c_time.setText("")
+        }
+
+
+        fun format_final()
+        {
+            for (k in 0 until cont_btns.size) {
+                if (selected[k] && right[k])
+                {
+                    cont_btns[k].setBackgroundColor(Color.argb(255, 80, 162, 55))
+                    cont_btns[k].setTextColor(Color.WHITE)
+                }
+                else if (selected[k] && !right[k])
+                {
+                    cont_btns[k].setBackgroundColor(Color.argb(255,255, 92, 68))
+                    cont_btns[k].setTextColor(Color.WHITE)
+                }
+                else if (!selected[k] && right[k])
+                {
+                    cont_btns[k].setBackgroundColor(Color.argb(80, 80, 162, 55))
+                    cont_btns[k].setTextColor(Color.WHITE)
+                }
+                else
+                {
+                    cont_btns[k].setBackgroundColor(Color.WHITE)
+                    cont_btns[k].setTextColor(Color.BLACK)
+                }
+            }
         }
 
         fun next_question() {
@@ -82,6 +114,42 @@ class ContinentActivity : AppCompatActivity() {
                 }
 
             }
+            confirm_btn.setOnClickListener {
+                tries++
+                format_final()
+
+                var curr_points = 0
+                for (i in 0 until right.size)
+                {
+                    if (right[i] == selected[i]) {
+                        points++
+                        curr_points++
+                    }
+                }
+
+                if (curr_points < 9)
+                {
+                    incorrect += 1
+                    incorrect_sound.start()
+                }
+                else right_sound.start()
+
+                if (limitation_mode < 2)
+                {
+                    c_time.setText("Правильно: " + points.toString())
+                }
+                else if (limitation_mode == 3) {
+                    var incor: String = ""
+                    for (i in 0 until incorrect) incor += "×"
+                    c_time.setText(incor)
+                }
+
+                if (limitation_mode != 2 && delay != 0) {
+                    Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
+                    confirm_btn.setOnClickListener() {}
+                }
+                else next_question()
+            }
         }
 
         next_question()
@@ -102,32 +170,6 @@ class ContinentActivity : AppCompatActivity() {
             }
         }
 
-        fun format_final()
-        {
-            for (k in 0 until cont_btns.size) {
-                if (selected[k] && right[k])
-                {
-                    cont_btns[k].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                    cont_btns[k].setTextColor(Color.WHITE)
-                }
-                else if (selected[k] && !right[k])
-                {
-                    cont_btns[k].setBackgroundColor(Color.argb(255,255, 92, 68))
-                    cont_btns[k].setTextColor(Color.WHITE)
-                }
-                else if (!selected[k] && right[k])
-                {
-                    cont_btns[k].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                    cont_btns[k].setTextColor(Color.WHITE)
-                }
-                else
-                {
-                    cont_btns[k].setBackgroundColor(Color.WHITE)
-                    cont_btns[k].setTextColor(Color.BLACK)
-                }
-            }
-        }
-
         for (i in 0 until cont_btns.size) {
             cont_btns[i].setOnClickListener()
             {
@@ -136,41 +178,7 @@ class ContinentActivity : AppCompatActivity() {
             }
         }
 
-        confirm_btn.setOnClickListener {
-            tries++
-            format_final()
-
-            var curr_points = 0
-            for (i in 0 until right.size)
-            {
-                if (right[i] == selected[i]) {
-                    points++
-                    curr_points++
-                }
-            }
-
-            if (curr_points < 9)
-            {
-                incorrect += 1
-            }
-
-            if (limitation_mode < 2)
-            {
-                c_time.setText("Правильно: " + points.toString())
-            }
-            else if (limitation_mode == 3) {
-                var incor: String = ""
-                for (i in 0 until incorrect) incor += "×"
-                c_time.setText(incor)
-            }
-
-            if (limitation_mode != 2 && delay != 0) {
-                Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
-            }
-            else next_question()
-        }
-
-        if (limitation_mode == 2 && delay != 0) {
+        if (limitation_mode == 2) {
             timer = object : CountDownTimer(counter, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     var min = (millisUntilFinished / 60000) % 60
