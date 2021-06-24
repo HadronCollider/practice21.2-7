@@ -84,7 +84,7 @@ class CitiesActivity : AppCompatActivity() {
                 canvas.drawRoundRect((RectF(0f, 0f, mbitmap.getWidth().toFloat(), mbitmap.getHeight().toFloat())), 25f, 25f, mpaint) // Round Image Corner 100 100 100 100
                 cityscape.setImageBitmap(imageRounded)
 
-                cityTextViewMain.setText(questions[ctr].city + "?")
+                cityTextViewMain.setText(questions[ctr].city)
 
                 for (k in 0 until city_btns.size) {
                     city_btns[k].setBackgroundResource(R.drawable.city_shape)
