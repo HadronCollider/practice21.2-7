@@ -2,7 +2,9 @@ package com.makentoshe.androidgithubcitemplate
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
+import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -70,14 +72,32 @@ class CitiesActivity : AppCompatActivity() {
                         break
                     }
                 }
-                cityscape.setImageResource(resources.getIdentifier("c" + questions[ctr].id.toString(), "drawable", packageName))
-                cityTextViewMain.setText(questions[ctr].city + "?")
+                val cityDrawable = getDrawable(resources.getIdentifier("c" + questions[ctr].id.toString(), "drawable", packageName))
+                val mbitmap = Bitmap.createScaledBitmap(
+                    (cityDrawable as BitmapDrawable).getBitmap(),
+                    800, (800f * cityDrawable.minimumHeight / cityDrawable.minimumWidth).toInt(),false);
+                val imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig())
+                val canvas = Canvas(imageRounded)
+                val mpaint = Paint()
+                mpaint.setAntiAlias(false)
+                mpaint.setShader(BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+                canvas.drawRoundRect((RectF(0f, 0f, mbitmap.getWidth().toFloat(), mbitmap.getHeight().toFloat())), 25f, 25f, mpaint) // Round Image Corner 100 100 100 100
+                cityscape.setImageBitmap(imageRounded)
+
+                cityTextViewMain.setText(questions[ctr].city)
 
                 for (k in 0 until city_btns.size) {
-                    city_btns[k].setBackgroundColor(Color.WHITE)
-                    city_btns[k].setTextColor(Color.BLACK)
+                    city_btns[k].setBackgroundResource(R.drawable.city_shape)
                     city_btns[k].setText(countries[k].country)
-                    flag_btns[k].setBackgroundResource(resources.getIdentifier("f" + countries[k].flag_id.toString(), "drawable", packageName))
+
+                    val fbitmap = (getDrawable(resources.getIdentifier("f" + countries[k].flag_id.toString(), "drawable", packageName)) as BitmapDrawable).getBitmap();
+                    val fImageRounded = Bitmap.createBitmap(fbitmap.getWidth(), fbitmap.getHeight(), fbitmap.getConfig())
+                    val fCanvas = Canvas(fImageRounded)
+                    val fpaint = Paint()
+                    fpaint.setAntiAlias(false)
+                    fpaint.setShader(BitmapShader(fbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+                    fCanvas.drawRoundRect((RectF(0f, 0f, fbitmap.getWidth().toFloat(), fbitmap.getHeight().toFloat())), 100f, 100f, fpaint) // Round Image Corner 100 100 100 100
+                    flag_btns[k].background = BitmapDrawable(resources, fImageRounded)
                 }
 
                 if (limitation_mode < 2 && (tries + 1) <= number_of_questions) city_time.setText((tries + 1).toString() + "/" + number_of_questions.toString())
@@ -91,8 +111,7 @@ class CitiesActivity : AppCompatActivity() {
                         points++
                         right_sound.start()
                         if(limitation_mode != 2 && delay != 0) {
-                            city_btns[i].setBackgroundColor(Color.argb(255, 80, 162, 55))
-                            city_btns[i].setTextColor(Color.WHITE)
+                            city_btns[i].setBackgroundResource(R.drawable.city_shape_correct)
                             Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                             for (k in 0 until city_btns.size)
                             {
@@ -104,10 +123,8 @@ class CitiesActivity : AppCompatActivity() {
                         incorrect++
                         incorrect_sound.start()
                         if (limitation_mode != 2 && delay != 0) {
-                            city_btns[i].setBackgroundColor(Color.argb(255,255, 92, 68))
-                            city_btns[i].setTextColor(Color.WHITE)
-                            city_btns[right_option].setBackgroundColor(Color.argb(80, 80, 162, 55))
-                            city_btns[right_option].setTextColor(Color.WHITE)
+                            city_btns[i].setBackgroundResource(R.drawable.city_shape_incorrect)
+                            city_btns[right_option].setBackgroundResource(R.drawable.city_shape_answer)
                             Handler(Looper.getMainLooper()).postDelayed({ next_question() }, delay.toLong() * 500)
                             for (k in 0 until city_btns.size)
                             {
