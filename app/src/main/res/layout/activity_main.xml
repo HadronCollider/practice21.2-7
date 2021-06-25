@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
 
-    <TextView
+    <ImageView
         android:id="@+id/topText"
         android:layout_width="936px"
         android:layout_height="200px"
