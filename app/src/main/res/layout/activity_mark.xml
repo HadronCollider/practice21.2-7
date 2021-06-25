@@ -29,9 +29,8 @@
 
     <TextView
         android:id="@+id/tv_up"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         android:layout_marginBottom="58dp"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
