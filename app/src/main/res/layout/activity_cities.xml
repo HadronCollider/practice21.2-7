@@ -160,7 +160,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/city_shape" />
+        app:srcCompat="@drawable/radius_up" />
 
     <ImageView
         android:id="@+id/topShape2"
