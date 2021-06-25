@@ -1,47 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MarkActivity"
-    android:orientation="vertical"
     android:background="@color/bgcolor"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MarkActivity">
+
 
     <TextView
         android:id="@+id/tv_welldone"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="65dp"
+        android:fontFamily="@font/open_sans_bold"
         android:text=""
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv"
         tools:ignore="RtlCompat" />
 
+    <TextView
+        android:id="@+id/tv_up"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="58dp"
+        android:background="@drawable/radius_up"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Результат"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="50dp"
-        android:text="Ваш результат: "
+        android:layout_marginBottom="53dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text=""
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_welldone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_up"
         tools:ignore="RtlCompat" />
 
     <ImageView
         android:id="@+id/home"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/home"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_width="129dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="316dp"
+        android:background="@drawable/home2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welldone" />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
