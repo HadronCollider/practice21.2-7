@@ -30,19 +30,16 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="936px"
+        android:layout_height="200px"
         android:layout_gravity="center"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
-        android:paddingLeft="10dp"
-        android:paddingTop="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="20dp"
+        android:gravity="center"
         android:text="Флаги"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="40dp"
+        android:textSize="96px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout2" />

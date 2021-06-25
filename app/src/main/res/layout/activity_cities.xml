@@ -155,8 +155,8 @@
 
     <ImageView
         android:id="@+id/topShape"
-        android:layout_width="340dp"
-        android:layout_height="50dp"
+        android:layout_width="936px"
+        android:layout_height="200px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -178,7 +178,7 @@
         android:fontFamily="@font/open_sans_bold"
         android:text="Города"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="96px"
         app:layout_constraintBottom_toBottomOf="@+id/topShape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

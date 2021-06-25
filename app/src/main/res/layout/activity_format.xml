@@ -12,14 +12,15 @@
 
     <TextView
         android:id="@+id/fTextView"
-        android:layout_width="341dp"
-        android:layout_height="98dp"
+        android:layout_width="936px"
+        android:layout_height="200px"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
         android:text="Формат"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="60sp"
+        android:textSize="96px"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
