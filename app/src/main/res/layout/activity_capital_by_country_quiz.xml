@@ -62,7 +62,7 @@
         android:text="Россия"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="34dp"
+        android:textSize="96px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,19 +12,17 @@
 
     <TextView
         android:id="@+id/tv_welldone"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="65dp"
+        android:layout_marginTop="216dp"
         android:fontFamily="@font/open_sans_bold"
         android:text=""
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/home"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv"
+        app:layout_constraintTop_toTopOf="@+id/tv_up"
         tools:ignore="RtlCompat" />
 
     <TextView
@@ -33,12 +31,11 @@
         android:layout_height="200px"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
+        android:gravity="center"
         android:text="Результат"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="96px"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -46,31 +43,28 @@
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="53dp"
+        android:layout_marginTop="128dp"
         android:fontFamily="@font/open_sans_bold"
         android:text=""
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_welldone"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_up"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlCompat" />
 
     <ImageView
         android:id="@+id/home"
         android:layout_width="129dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="316dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="312dp"
         android:background="@drawable/home2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_welldone" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
