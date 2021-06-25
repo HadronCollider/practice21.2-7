@@ -5,4 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="bgcolor">#2D9AFF</color>
     <color name="btncolor">#5BAFFC</color>
+    <color name="black">#000000</color>
+    <color name="main_title_color">#2A2E32</color>
+    <color name="setting_color">#483878</color>
 </resources>
