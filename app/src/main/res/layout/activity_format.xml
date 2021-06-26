@@ -28,7 +28,7 @@
 
     <Button
         android:id="@+id/b_flags"
-        android:layout_width="0dp"
+        android:layout_width="735px"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="54dp"
@@ -45,7 +45,7 @@
 
     <Button
         android:id="@+id/b_capitals"
-        android:layout_width="0dp"
+        android:layout_width="735px"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="54dp"
@@ -62,7 +62,7 @@
 
     <Button
         android:id="@+id/b_continents"
-        android:layout_width="0dp"
+        android:layout_width="735px"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="54dp"
@@ -79,7 +79,7 @@
 
     <Button
         android:id="@+id/b_cities"
-        android:layout_width="0dp"
+        android:layout_width="735px"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
         android:layout_marginEnd="54dp"
