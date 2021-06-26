@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2D9AFF"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".CapitalByCountryQuizActivity">
 
@@ -14,39 +13,33 @@
         android:id="@+id/textView2"
         android:layout_width="936px"
         android:layout_height="200px"
-        android:layout_gravity="center"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
         android:gravity="center"
         android:text="Столицы"
-        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="96px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:ignore="MissingConstraints" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="4dp"
+        android:paddingTop="10dp"
         android:fontFamily="@font/open_sans_bold"
-        android:paddingLeft="10dp"
-        android:paddingTop="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="20dp"
         android:text=""
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_country"
@@ -54,99 +47,75 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/open_sans_bold"
-        android:paddingLeft="10dp"
-        android:paddingTop="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="20dp"
-
+        android:paddingTop="70dp"
+        android:paddingBottom="70dp"
         android:text="Россия"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="96px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+        android:textSize="96px" />
 
-    <Button
-        android:id="@+id/capital0"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Москва"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/capital1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_country" />
 
-    <Button
-        android:id="@+id/capital3"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Берлин"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capital2" />
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
+        <Button
+            android:id="@+id/capital0"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Москва"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="70dp"/>
 
-    <Button
-        android:id="@+id/capital2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Париж"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/capital3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capital1" />
+        <Button
+            android:id="@+id/capital3"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Москва"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="70dp"/>
 
-    <Button
-        android:id="@+id/capital1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Лондон"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/capital2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/capital0" />
+        <Button
+            android:id="@+id/capital2"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Москва"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="70dp"/>
+
+        <Button
+            android:id="@+id/capital1"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Москва"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
