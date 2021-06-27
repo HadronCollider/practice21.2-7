@@ -5,28 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2D9AFF"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".CountryByFlagQuizActivity">
 
-
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingLeft="10dp"
-        android:paddingTop="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="20dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
@@ -42,129 +22,104 @@
         android:textSize="96px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout2" />
+        tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/country_img"
-        android:layout_width="361dp"
-        android:layout_height="180dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/f1"
-        android:backgroundTintMode="src_atop"
-        android:foregroundGravity="clip_horizontal|clip_vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time" />
-
-    <Button
-        android:id="@+id/country0"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Демократическая Республика Конго"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country_img" />
-
-    <Button
-        android:id="@+id/country1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Австралия"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country0" />
-
-    <Button
-        android:id="@+id/country2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Россия"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country1" />
-
-    <Button
-        android:id="@+id/country3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Франция"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country2" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ExtraText">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-        <!--        <ImageView-->
-        <!--            android:layout_width="25dp"-->
-        <!--            android:layout_height="25dp"-->
-        <!--            android:paddingBottom="10dp"-->
-        <!--            android:background="@drawable/home"-->
-        <!--            />-->
+        <ImageView
+            android:id="@+id/country_img"
+            android:layout_width="361dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:background="@drawable/f1"
+            android:backgroundTintMode="src_atop"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="70dp"
+            android:layout_marginTop="70dp"/>
 
+        <Button
+            android:id="@+id/country0"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Демократическая Республика Конго"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginBottom="30dp"/>
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/right_ans_tv"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="Правильные ответы: 0 / 1"-->
-        <!--            android:textColor="@android:color/black"-->
-        <!--            android:paddingLeft="95dp"-->
-        <!--            android:textAlignment="center"/>-->
+        <Button
+            android:id="@+id/country1"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Австралия"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginBottom="30dp"/>
 
+        <Button
+            android:id="@+id/country2"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Россия"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
+            android:id="@+id/country3"
+            android:layout_width="800px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/city_shape"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Франция"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginBottom="30dp"/>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout2"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingTop="10dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="ExtraText">-->
+<!--    </LinearLayout>-->
 
     </LinearLayout>
 

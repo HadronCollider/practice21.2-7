@@ -35,146 +35,143 @@
         app:layout_constraintVertical_bias="0.493"
         tools:ignore="MissingConstraints" />
 
-
-    <Button
-        android:id="@+id/buttondone"
-        android:layout_width="480px"
-        android:layout_height="170px"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="48dp"
-        android:background="@drawable/done"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Готово"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView02"
-        android:layout_width="936px"
-        android:layout_height="200px"
-        android:layout_gravity="center"
-        android:background="@drawable/setting_title"
-        android:fontFamily="@font/open_sans_bold"
-        android:gravity="center"
-        android:text="Настройки"
-        android:textColor="@android:color/white"
-        android:textSize="96px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <RadioGroup
-        android:id="@+id/radiogroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="204dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="MissingConstraints">
-
-        <RadioButton
-            android:id="@+id/radioclassic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:buttonTint="@android:color/white"
-            android:fontFamily="@font/open_sans_bold"
-            android:text="Классика"
-            android:textColor="@android:color/white"
-            android:textSize="72px" />
-
-        <RadioButton
-            android:id="@+id/radiotime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:buttonTint="@android:color/white"
-            android:fontFamily="@font/open_sans_bold"
-            android:text="60 секунд"
-            android:textColor="@android:color/white"
-            android:textSize="72px" />
-
-        <RadioButton
-            android:id="@+id/radio3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@android:color/white"
-            android:fontFamily="@font/open_sans_bold"
-            android:text="До 3 ошибок"
-            android:textColor="@android:color/white"
-            android:textSize="72px" />
-    </RadioGroup>
-
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="100dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_delay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/textView02"
+            android:layout_width="936px"
+            android:layout_height="200px"
+            android:background="@drawable/setting_title"
+            android:fontFamily="@font/open_sans_bold"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:text="Время задержки между вопросами"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp" />
+            android:text="Настройки"
+            android:textColor="@android:color/white"
+            android:textSize="96px" />
 
-        <SeekBar
-            android:id="@+id/seekBar_delay"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:max="10"
-            android:paddingTop="10dp"
-            android:progress="1"
-            android:theme="@style/seekBar"
-            tools:ignore="MissingConstraints" />
+            android:orientation="vertical"
+            android:paddingTop="30dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tv_delay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Время задержки между вопросами"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:gravity="center" />
+
+            <SeekBar
+                android:id="@+id/seekBar_delay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10"
+                android:paddingTop="20dp"
+                android:progress="1"
+                android:theme="@style/seekBar"
+                tools:ignore="MissingConstraints"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|bottom"
+            android:paddingBottom="60dp">
+            <Button
+            android:id="@+id/buttondone"
+            android:layout_width="480px"
+            android:layout_height="170px"
+            android:background="@drawable/done"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Готово"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="416dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/numOQ"
+        <RadioGroup
+            android:id="@+id/radiogroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="10dp"
-            android:text="Количество вопросов"
-            android:textColor="@android:color/white"
-            android:textSize="64px" />
+            android:layout_gravity="center">
 
+            <RadioButton
+                android:id="@+id/radioclassic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:buttonTint="@android:color/white"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Классика"
+                android:textColor="@android:color/white"
+                android:textSize="64px" />
 
-        <NumberPicker
-            android:id="@+id/numQQPicker"
+            <RadioButton
+                android:id="@+id/radiotime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:buttonTint="@android:color/white"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="60 секунд"
+                android:textColor="@android:color/white"
+                android:textSize="64px" />
+
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@android:color/white"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="До 3 ошибок"
+                android:textColor="@android:color/white"
+                android:textSize="64px" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.Picker" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/numOQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Количество вопросов"
+                android:textColor="@android:color/white"
+                android:textSize="64px" />
+
+
+            <NumberPicker
+                android:id="@+id/numQQPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.Picker" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
