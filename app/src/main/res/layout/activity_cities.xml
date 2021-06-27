@@ -7,181 +7,164 @@
     android:background="@color/bgcolor"
     tools:context=".CitiesActivity">
 
-    <Button
-        android:id="@+id/city4"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Южная Корея"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city3" />
-
-    <ImageButton
-        android:id="@+id/city_flag4"
-        android:layout_width="64dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/f83"
-        android:foregroundGravity="fill_horizontal|fill"
-        app:layout_constraintEnd_toStartOf="@+id/city1"
-        app:layout_constraintHorizontal_bias="0.675"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_flag3" />
-
-    <Button
-        android:id="@+id/city3"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Япония"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city2" />
-
-    <ImageButton
-        android:id="@+id/city_flag3"
-        android:layout_width="64dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/f195"
-        android:foregroundGravity="fill_horizontal|fill"
-        app:layout_constraintEnd_toStartOf="@+id/city1"
-        app:layout_constraintHorizontal_bias="0.675"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_flag2" />
-
-    <Button
-        android:id="@+id/city2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Малайзия"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city1" />
-
-    <ImageButton
-        android:id="@+id/city_flag2"
-        android:layout_width="64dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/f101"
-        android:foregroundGravity="fill_horizontal|fill"
-        app:layout_constraintEnd_toStartOf="@+id/city1"
-        app:layout_constraintHorizontal_bias="0.675"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city_flag1" />
-
-    <ImageView
-        android:id="@+id/cityscape"
-        android:layout_width="320dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/c1" />
 
     <TextView
-        android:id="@+id/cityTextViewMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Токио"
-        android:textColor="@android:color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityscape" />
-
-    <TextView
-        android:id="@+id/city_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="  "
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/city1"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/city_shape"
-        android:fontFamily="@font/open_sans_bold"
-        android:text="Вьетнам"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityTextViewMain" />
-
-    <ImageButton
-        android:id="@+id/city_flag1"
-        android:layout_width="64dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/f35"
-        android:foregroundGravity="fill_horizontal|fill"
-        app:layout_constraintEnd_toStartOf="@+id/city1"
-        app:layout_constraintHorizontal_bias="0.681"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityTextViewMain" />
-
-    <ImageView
         android:id="@+id/topShape"
         android:layout_width="936px"
         android:layout_height="200px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/radius_up" />
-
-    <ImageView
-        android:id="@+id/topShape2"
-        android:layout_width="340dp"
-        android:layout_height="20dp"
-        android:background="@color/btncolor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topShape" />
-
-    <TextView
-        android:id="@+id/topText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/open_sans_bold"
+        android:background="@drawable/radius_up"
         android:text="Города"
-        android:textColor="@android:color/white"
-        android:textSize="96px"
-        app:layout_constraintBottom_toBottomOf="@+id/topShape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topShape" />
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="96px"
+        android:fontFamily="@font/open_sans_bold"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/cityscape"
+            android:layout_width="320dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="200px"
+            app:srcCompat="@drawable/c1" />
+
+        <TextView
+            android:id="@+id/cityTextViewMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Токио"
+            android:textColor="@android:color/white"
+            android:textSize="34sp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/city_flag1"
+                android:layout_width="64dp"
+                android:layout_height="40dp"
+                android:background="@drawable/f83"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/city1"
+                android:layout_width="275dp"
+                android:layout_height="40dp"
+                android:background="@drawable/city_shape"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Южная Корея"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/city_flag2"
+                android:layout_width="64dp"
+                android:layout_height="40dp"
+                android:background="@drawable/f83"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/city2"
+                android:layout_width="275dp"
+                android:layout_height="40dp"
+                android:background="@drawable/city_shape"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Южная Корея"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/city_flag3"
+                android:layout_width="64dp"
+                android:layout_height="40dp"
+                android:background="@drawable/f83"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/city3"
+                android:layout_width="275dp"
+                android:layout_height="40dp"
+                android:background="@drawable/city_shape"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Южная Корея"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/city_flag4"
+                android:layout_width="64dp"
+                android:layout_height="40dp"
+                android:background="@drawable/f83"
+                android:layout_marginRight="10dp"/>
+
+            <Button
+                android:id="@+id/city4"
+                android:layout_width="275dp"
+                android:layout_height="40dp"
+                android:background="@drawable/city_shape"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Южная Корея"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/city_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="  "
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingTop="10dp"/>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
