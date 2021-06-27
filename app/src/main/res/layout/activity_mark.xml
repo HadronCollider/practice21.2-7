@@ -11,21 +11,6 @@
 
 
     <TextView
-        android:id="@+id/tv_welldone"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="216dp"
-        android:fontFamily="@font/open_sans_bold"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_up"
-        tools:ignore="RtlCompat" />
-
-    <TextView
         android:id="@+id/tv_up"
         android:layout_width="936px"
         android:layout_height="200px"
@@ -41,30 +26,48 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlCompat" />
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="128dp"
-        android:fontFamily="@font/open_sans_bold"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlCompat" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_welldone"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"/>
+
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"/>
+
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/home"
-        android:layout_width="129dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="312dp"
-        android:background="@drawable/home2"
+        android:background="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="50dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
