@@ -1,4 +1,4 @@
-package com.makentoshe.androidgithubcitemplate
+package com.JBPractice7_2021.GeoTest
 
 import android.content.res.Resources
 import com.google.gson.GsonBuilder

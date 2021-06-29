@@ -1,9 +1,8 @@
-package com.makentoshe.androidgithubcitemplate
+package com.JBPractice7_2021.GeoTest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_capital_by_country_quiz.*
 import android.widget.TextView
 import android.content.Context
@@ -11,7 +10,6 @@ import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.CountDownTimer
 import java.text.DecimalFormat
-import java.text.NumberFormat
 import android.os.Handler
 import android.os.Looper
 

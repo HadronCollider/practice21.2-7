@@ -1,4 +1,4 @@
-package com.makentoshe.androidgithubcitemplate
+package JBPractice7_2021.JBPractice7_2021.GeoTest
 
 import org.junit.Test
 

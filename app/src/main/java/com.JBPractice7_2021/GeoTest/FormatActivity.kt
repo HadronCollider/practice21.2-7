@@ -1,4 +1,4 @@
-package com.makentoshe.androidgithubcitemplate
+package com.JBPractice7_2021.GeoTest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
