@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/textView_continent"
-        android:layout_width="936px"
-        android:layout_height="200px"
+        android:layout_width="340dp"
+        android:layout_height="72dp"
         android:layout_gravity="center"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
@@ -19,7 +19,7 @@
         android:text="Части света"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="96px"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="230px"
+        android:layout_marginTop="83dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +56,7 @@
             android:gravity="center"
             android:text="в Азии:"
             android:textColor="#FFFFFF"
-            android:textSize="34dp" />
+            android:textSize="34sp" />
 
 
         <LinearLayout
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingRight="30dp">
+                android:paddingEnd="30dp">
 
                 <Button
                     android:id="@+id/cont_btn1"

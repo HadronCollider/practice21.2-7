@@ -42,15 +42,15 @@
 
         <TextView
             android:id="@+id/textView02"
-            android:layout_width="936px"
-            android:layout_height="200px"
+            android:layout_width="340dp"
+            android:layout_height="72dp"
             android:background="@drawable/setting_title"
             android:fontFamily="@font/open_sans_bold"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:text="Настройки"
             android:textColor="@android:color/white"
-            android:textSize="96px" />
+            android:textSize="34sp" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -90,8 +90,8 @@
             android:paddingBottom="60dp">
             <Button
             android:id="@+id/buttondone"
-            android:layout_width="480px"
-            android:layout_height="170px"
+            android:layout_width="174dp"
+            android:layout_height="61dp"
             android:background="@drawable/done"
             android:fontFamily="@font/open_sans_bold"
             android:text="Готово"
@@ -124,7 +124,7 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:text="Классика"
                 android:textColor="@android:color/white"
-                android:textSize="64px" />
+                android:textSize="23dp" />
 
             <RadioButton
                 android:id="@+id/radiotime"
@@ -135,7 +135,7 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:text="60 секунд"
                 android:textColor="@android:color/white"
-                android:textSize="64px" />
+                android:textSize="23dp" />
 
             <RadioButton
                 android:id="@+id/radio3"
@@ -145,7 +145,7 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:text="До 3 ошибок"
                 android:textColor="@android:color/white"
-                android:textSize="64px" />
+                android:textSize="23dp" />
         </RadioGroup>
 
         <LinearLayout
@@ -161,7 +161,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="Количество вопросов"
                 android:textColor="@android:color/white"
-                android:textSize="64px" />
+                android:textSize="23dp" />
 
 
             <NumberPicker

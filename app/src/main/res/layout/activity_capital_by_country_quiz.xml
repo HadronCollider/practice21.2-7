@@ -11,14 +11,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="936px"
-        android:layout_height="200px"
+        android:layout_width="340dp"
+        android:layout_height="72dp"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
         android:gravity="center"
         android:text="Столицы"
         android:textColor="#FFFFFF"
-        android:textSize="96px"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -38,7 +38,7 @@
         android:text=""
         android:gravity="center"
         android:textColor="#FFFFFF"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -51,7 +51,7 @@
         android:text="Россия"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="96px" />
+        android:textSize="34dp" />
 
 
     <LinearLayout
@@ -61,7 +61,7 @@
         android:layout_gravity="center_horizontal">
         <Button
             android:id="@+id/capital0"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:background="@drawable/city_shape"
             android:fontFamily="@font/open_sans_bold"
@@ -75,7 +75,7 @@
 
         <Button
             android:id="@+id/capital3"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:background="@drawable/city_shape"
             android:fontFamily="@font/open_sans_bold"
@@ -89,7 +89,7 @@
 
         <Button
             android:id="@+id/capital2"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:background="@drawable/city_shape"
             android:fontFamily="@font/open_sans_bold"
@@ -103,7 +103,7 @@
 
         <Button
             android:id="@+id/capital1"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:background="@drawable/city_shape"
             android:fontFamily="@font/open_sans_bold"

@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="936px"
-        android:layout_height="200px"
+        android:layout_width="340dp"
+        android:layout_height="72dp"
         android:layout_gravity="center"
         android:background="@drawable/radius_up"
         android:fontFamily="@font/open_sans_bold"
@@ -19,7 +19,7 @@
         android:text="Флаги"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="96px"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -39,9 +39,9 @@
             android:gravity="center"
             android:paddingTop="10dp"
             android:textColor="#FFFFFF"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="200px"
+            android:layout_marginTop="72dp"
             android:layout_marginBottom="20dp"/>
 
         <ImageView
@@ -56,7 +56,7 @@
 
         <Button
             android:id="@+id/country0"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
@@ -70,7 +70,7 @@
 
         <Button
             android:id="@+id/country1"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/city_shape"
@@ -84,7 +84,7 @@
 
         <Button
             android:id="@+id/country2"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/city_shape"
@@ -98,7 +98,7 @@
 
         <Button
             android:id="@+id/country3"
-            android:layout_width="800px"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/city_shape"
