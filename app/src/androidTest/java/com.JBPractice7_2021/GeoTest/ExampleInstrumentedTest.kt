@@ -1,4 +1,4 @@
-package JBPractice7_2021.JBPractice7_2021.GeoTest
+package com.JBPractice7_2021.GeoTest
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.makentoshe.androidgithubcitemplate", appContext.packageName)
+        assertEquals("com.JBPractice7_2021.GeoTest", appContext.packageName)
     }
 }

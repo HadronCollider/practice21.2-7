@@ -5,11 +5,10 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="GeoTest"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CitiesActivity"></activity>
+        <activity android:name=".CitiesActivity" />
         <activity android:name=".ContinentActivity" />
         <activity android:name=".CapitalByCountryQuizActivity" />
         <activity android:name=".MarkActivity" />
